@@ -105,6 +105,14 @@
         },
         {
           "@type": "Question",
+          "name": "¿Dónde castro gratis a mi perro o gato en Luján?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Podés anotarte con Lujaneritos en las castraciones gratuitas de Zoonosis Luján. Escribinos por WhatsApp al 2323 53-8038 (sólo mensajes) y te pasamos los requisitos y las fechas disponibles. La castración es la forma más efectiva de evitar que sigan naciendo animales que terminan en la calle."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "¿Puedo ser hogar de tránsito?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -168,6 +176,8 @@
             <nav class="nav__links" id="nav-links" aria-label="Navegación principal">
                 <a href="#nosotros">Quiénes somos</a>
                 <a href="#que-hacemos">Qué hacemos</a>
+                <a href="#plantel">Adoptá</a>
+                <a href="#castrar">Castraciones</a>
                 <a href="#historias">Historias</a>
                 <a href="#ayudar">Cómo ayudar</a>
                 <a href="#faq">Preguntas</a>
@@ -188,8 +198,8 @@
 
             <div class="hero__texto">
                 <p class="hero__kicker">
-                    <span class="hero__pill">🐾 Desde 2019</span>
-                    <span class="hero__lugar">Asociación civil sin fines de lucro · Luján, Buenos Aires</span>
+                    <span class="hero__lugar">Asociación civil sin fines de lucro · Luján, Buenos Aires · Desde
+                        2019</span>
                 </p>
                 <h1 class="hero__titulo">Rescatamos perros y gatos<br>de la calle en Luján</h1>
                 <p class="hero__bajada">
@@ -417,6 +427,31 @@
         </div>
     </section>
 
+    <!-- ============================================ CASTRACIONES ============================================
+         TODO:DATO — si consiguen el link de inscripción de Zoonosis, ponerlo en el
+         botón "Ver requisitos". El QR de la campaña no se sube: en un celular no
+         se puede escanear la propia pantalla, lo que sirve es el link. -->
+    <section class="castrar" id="castrar">
+        <div class="contenedor castrar__inner">
+            <div class="castrar__texto">
+                <p class="seccion__kicker seccion__kicker--izq">Castrar salva vidas</p>
+                <h2 class="seccion__titulo seccion__titulo--izq">Castrá gratis a tu perro o gato</h2>
+                <p>
+                    Podés anotarte con nosotros en las castraciones gratuitas de <strong>Zoonosis Luján</strong>.
+                    Es el modo más efectivo de cortar el problema de raíz: cada camada que no termina en la calle son
+                    diez rescates que no hacen falta.
+                </p>
+                <p class="castrar__nota">
+                    Escribinos por WhatsApp al <strong>2323 53-8038</strong> (sólo mensajes) y te anotamos.
+                </p>
+                <a class="btn btn--donar js-wa" data-wa-msg="Hola! Quiero anotarme para castrar a mi mascota">
+                    Quiero anotarme
+                </a>
+            </div>
+            <div class="castrar__icono" aria-hidden="true">🐾</div>
+        </div>
+    </section>
+
     <!-- ============================================ HISTORIAS ============================================ -->
     <section class="historias" id="historias">
         <div class="contenedor">
@@ -562,29 +597,265 @@
         </div>
     </section>
 
-    <!-- ============================================ ADOPTÁ (apagada por flag) ============================================
-         Se prende poniendo ADOPTABLES_ACTIVO = true en /js/index.js y poblando /data/adoptables.json
-    -->
-    <section class="adoptar" id="adoptar" hidden data-flag="adoptables">
+    <!-- ============================================ PLANTEL ============================================
+         El album de figuritas del Mundial 2026 que hace la organizacion.
+         Para sumar o sacar uno: copiar un bloque <a class="figurita">, poner la
+         imagen en /assets/images/plantel/ con el nombre en minuscula. -->
+    <section class="plantel" id="plantel">
         <div class="contenedor">
-            <p class="seccion__kicker">Adoptá</p>
-            <h2 class="seccion__titulo">Están esperando una familia</h2>
-            <p class="seccion__bajada">La adopción es responsable: charlamos, nos conocemos y hacemos seguimiento.</p>
-            <div class="adoptar__grid" id="adoptar-grid"><!-- se llena desde /data/adoptables.json --></div>
-        </div>
-    </section>
+            <p class="seccion__kicker">Álbum Mundial 2026</p>
+            <h2 class="seccion__titulo">Nuestro plantel</h2>
+            <p class="seccion__bajada">
+                Cada uno con su equipo, su edad y su talla. Todos buscan lo mismo: que alguien
+                los sume a su familia. Tocá una figurita y te contamos todo sobre ese jugador.
+            </p>
 
-    <!-- Mientras adoptables está apagada, mandamos a las redes -->
-    <section class="adoptar-redes" id="adoptar-redes">
-        <div class="contenedor adoptar-redes__inner">
-            <h2>¿Buscás adoptar?</h2>
-            <p>Publicamos todos los perros y gatos en adopción en nuestras redes. Escribinos y te contamos de cada uno.</p>
-            <div class="adoptar-redes__botones">
-                <a class="btn btn--secundario" href="https://www.instagram.com/lujaneritos/" target="_blank"
-                    rel="noopener">Ver en Instagram</a>
-                <a class="btn btn--secundario" href="https://www.facebook.com/lujaneritos/" target="_blank"
-                    rel="noopener">Ver en Facebook</a>
+            <div class="plantel__grid">
+                <a class="figurita js-wa" data-wa-msg="Hola! Quiero saber más sobre Beto">
+                    <div class="figurita__foto">
+                        <img src="/assets/images/plantel/beto.jpg"
+                            alt="Beto, 3 años, talla enana, en adopción en Lujaneritos" loading="lazy"
+                            width="1024" height="1024">
+                    </div>
+                    <div class="figurita__ficha">
+                        <h3>Beto</h3>
+                        <p class="figurita__datos">3 años · Talla enana</p>
+                        <p class="figurita__club">Dientes Feroces FC</p>
+                        <span class="figurita__cta">Quiero conocerlo</span>
+                    </div>
+                </a>
+                <a class="figurita js-wa" data-wa-msg="Hola! Quiero saber más sobre Serena">
+                    <div class="figurita__foto">
+                        <img src="/assets/images/plantel/serena.jpg"
+                            alt="Serena, 7 años, talla media, en adopción en Lujaneritos" loading="lazy"
+                            width="1024" height="1024">
+                    </div>
+                    <div class="figurita__ficha">
+                        <h3>Serena</h3>
+                        <p class="figurita__datos">7 años · Talla media</p>
+                        <p class="figurita__club">Princesas FC</p>
+                        <span class="figurita__cta">Quiero conocerlo</span>
+                    </div>
+                </a>
+                <a class="figurita js-wa" data-wa-msg="Hola! Quiero saber más sobre Mindy">
+                    <div class="figurita__foto">
+                        <img src="/assets/images/plantel/mindy.jpg"
+                            alt="Mindy, 4 años, talla media, en adopción en Lujaneritos" loading="lazy"
+                            width="1024" height="1024">
+                    </div>
+                    <div class="figurita__ficha">
+                        <h3>Mindy</h3>
+                        <p class="figurita__datos">4 años · Talla media</p>
+                        <p class="figurita__club">Princesas FC</p>
+                        <span class="figurita__cta">Quiero conocerlo</span>
+                    </div>
+                </a>
+                <a class="figurita js-wa" data-wa-msg="Hola! Quiero saber más sobre Tina">
+                    <div class="figurita__foto">
+                        <img src="/assets/images/plantel/tina.jpg"
+                            alt="Tina, 4 años, talla media, en adopción en Lujaneritos" loading="lazy"
+                            width="1024" height="1024">
+                    </div>
+                    <div class="figurita__ficha">
+                        <h3>Tina</h3>
+                        <p class="figurita__datos">4 años · Talla media</p>
+                        <p class="figurita__club">Hermanos Unidos FC</p>
+                        <p class="figurita__nota">Se adopta junto a su hermano Tin</p>
+                        <span class="figurita__cta">Quiero conocerlo</span>
+                    </div>
+                </a>
+                <a class="figurita js-wa" data-wa-msg="Hola! Quiero saber más sobre Tin">
+                    <div class="figurita__foto">
+                        <img src="/assets/images/plantel/tin.jpg"
+                            alt="Tin, 4 años, talla media, en adopción en Lujaneritos" loading="lazy"
+                            width="1024" height="1024">
+                    </div>
+                    <div class="figurita__ficha">
+                        <h3>Tin</h3>
+                        <p class="figurita__datos">4 años · Talla media</p>
+                        <p class="figurita__club">C.A. Lujaneritos</p>
+                        <p class="figurita__nota">Se adopta junto a su hermana Tina</p>
+                        <span class="figurita__cta">Quiero conocerlo</span>
+                    </div>
+                </a>
+                <a class="figurita js-wa" data-wa-msg="Hola! Quiero saber más sobre Ramoncito">
+                    <div class="figurita__foto">
+                        <img src="/assets/images/plantel/ramoncito.jpg"
+                            alt="Ramoncito, 8 años, talla media, en adopción en Lujaneritos" loading="lazy"
+                            width="1024" height="1024">
+                    </div>
+                    <div class="figurita__ficha">
+                        <h3>Ramoncito</h3>
+                        <p class="figurita__datos">8 años · Talla media</p>
+                        <p class="figurita__club">Lujaneritos FC</p>
+                        <span class="figurita__cta">Quiero conocerlo</span>
+                    </div>
+                </a>
+                <a class="figurita js-wa" data-wa-msg="Hola! Quiero saber más sobre Yaco">
+                    <div class="figurita__foto">
+                        <img src="/assets/images/plantel/yaco.jpg"
+                            alt="Yaco, 6 años, talla grande, en adopción en Lujaneritos" loading="lazy"
+                            width="1024" height="1024">
+                    </div>
+                    <div class="figurita__ficha">
+                        <h3>Yaco</h3>
+                        <p class="figurita__datos">6 años · Talla grande</p>
+                        <p class="figurita__club">FC Patas Bravas</p>
+                        <span class="figurita__cta">Quiero conocerlo</span>
+                    </div>
+                </a>
+                <a class="figurita js-wa" data-wa-msg="Hola! Quiero saber más sobre LeBron">
+                    <div class="figurita__foto">
+                        <img src="/assets/images/plantel/lebron.jpg"
+                            alt="LeBron, 3 años, talla chica-media, en adopción en Lujaneritos" loading="lazy"
+                            width="1024" height="1024">
+                    </div>
+                    <div class="figurita__ficha">
+                        <h3>LeBron</h3>
+                        <p class="figurita__datos">3 años · Talla chica-media</p>
+                        <p class="figurita__club">Salchitrucho FC</p>
+                        <span class="figurita__cta">Quiero conocerlo</span>
+                    </div>
+                </a>
+                <a class="figurita js-wa" data-wa-msg="Hola! Quiero saber más sobre Lorenzo">
+                    <div class="figurita__foto">
+                        <img src="/assets/images/plantel/lorenzo.jpg"
+                            alt="Lorenzo, 7 meses, talla grande, en adopción en Lujaneritos" loading="lazy"
+                            width="1024" height="1024">
+                    </div>
+                    <div class="figurita__ficha">
+                        <h3>Lorenzo</h3>
+                        <p class="figurita__datos">7 meses · Talla grande</p>
+                        <p class="figurita__club">Pata Brava FC</p>
+                        <p class="figurita__nota">Hermano de Salvador</p>
+                        <span class="figurita__cta">Quiero conocerlo</span>
+                    </div>
+                </a>
+                <a class="figurita js-wa" data-wa-msg="Hola! Quiero saber más sobre Salvador">
+                    <div class="figurita__foto">
+                        <img src="/assets/images/plantel/salvador.jpg"
+                            alt="Salvador, 7 meses, talla media, en adopción en Lujaneritos" loading="lazy"
+                            width="1024" height="1024">
+                    </div>
+                    <div class="figurita__ficha">
+                        <h3>Salvador</h3>
+                        <p class="figurita__datos">7 meses · Talla media</p>
+                        <p class="figurita__club">Pata Brava FC</p>
+                        <p class="figurita__nota">Hermano de Lorenzo</p>
+                        <span class="figurita__cta">Quiero conocerlo</span>
+                    </div>
+                </a>
+                <a class="figurita js-wa" data-wa-msg="Hola! Quiero saber más sobre Tyson">
+                    <div class="figurita__foto">
+                        <img src="/assets/images/plantel/tyson.jpg"
+                            alt="Tyson, 6 años, talla media, en adopción en Lujaneritos" loading="lazy"
+                            width="1024" height="1024">
+                    </div>
+                    <div class="figurita__ficha">
+                        <h3>Tyson</h3>
+                        <p class="figurita__datos">6 años · Talla media</p>
+                        <p class="figurita__club">C.A. Patas Bravas</p>
+                        <span class="figurita__cta">Quiero conocerlo</span>
+                    </div>
+                </a>
+                <a class="figurita js-wa" data-wa-msg="Hola! Quiero saber más sobre Viejo">
+                    <div class="figurita__foto">
+                        <img src="/assets/images/plantel/viejo.jpg"
+                            alt="Viejo, 12 años, talla media, en adopción en Lujaneritos" loading="lazy"
+                            width="1024" height="1024">
+                    </div>
+                    <div class="figurita__ficha">
+                        <h3>Viejo</h3>
+                        <p class="figurita__datos">12 años · Talla media</p>
+                        <p class="figurita__club">Team Puro Amor</p>
+                        <p class="figurita__nota">Es ciego</p>
+                        <span class="figurita__cta">Quiero conocerlo</span>
+                    </div>
+                </a>
+                <a class="figurita js-wa" data-wa-msg="Hola! Quiero saber más sobre Mia">
+                    <div class="figurita__foto">
+                        <img src="/assets/images/plantel/mia.jpg"
+                            alt="Mia, 12 años, talla media, en adopción en Lujaneritos" loading="lazy"
+                            width="1024" height="1024">
+                    </div>
+                    <div class="figurita__ficha">
+                        <h3>Mia</h3>
+                        <p class="figurita__datos">12 años · Talla media</p>
+                        <p class="figurita__club">Princesas FC</p>
+                        <span class="figurita__cta">Quiero conocerlo</span>
+                    </div>
+                </a>
+                <a class="figurita js-wa" data-wa-msg="Hola! Quiero saber más sobre Milo">
+                    <div class="figurita__foto">
+                        <img src="/assets/images/plantel/milo.jpg"
+                            alt="Milo, 6 años, talla enana, en adopción en Lujaneritos" loading="lazy"
+                            width="1024" height="1024">
+                    </div>
+                    <div class="figurita__ficha">
+                        <h3>Milo</h3>
+                        <p class="figurita__datos">6 años · Talla enana</p>
+                        <p class="figurita__club">Cuatro Patas FC</p>
+                        <span class="figurita__cta">Quiero conocerlo</span>
+                    </div>
+                </a>
+                <a class="figurita js-wa" data-wa-msg="Hola! Quiero saber más sobre Linda">
+                    <div class="figurita__foto">
+                        <img src="/assets/images/plantel/linda.jpg"
+                            alt="Linda, 8 años, talla chica-mediana, en adopción en Lujaneritos" loading="lazy"
+                            width="1024" height="1024">
+                    </div>
+                    <div class="figurita__ficha">
+                        <h3>Linda</h3>
+                        <p class="figurita__datos">8 años · Talla chica-mediana</p>
+                        <p class="figurita__club">Princesas FC</p>
+                        <span class="figurita__cta">Quiero conocerlo</span>
+                    </div>
+                </a>
+                <a class="figurita js-wa" data-wa-msg="Hola! Quiero saber más sobre Negrita">
+                    <div class="figurita__foto">
+                        <img src="/assets/images/plantel/negrita.jpg"
+                            alt="Negrita, 4 años, talla media, en adopción en Lujaneritos" loading="lazy"
+                            width="1024" height="1024">
+                    </div>
+                    <div class="figurita__ficha">
+                        <h3>Negrita</h3>
+                        <p class="figurita__datos">4 años · Talla media</p>
+                        <p class="figurita__club">Princesas FC</p>
+                        <span class="figurita__cta">Quiero conocerlo</span>
+                    </div>
+                </a>
+                <a class="figurita js-wa" data-wa-msg="Hola! Quiero saber más sobre Arenita">
+                    <div class="figurita__foto">
+                        <img src="/assets/images/plantel/arenita.jpg"
+                            alt="Arenita, 5 años, talla chica, en adopción en Lujaneritos" loading="lazy"
+                            width="1024" height="1024">
+                    </div>
+                    <div class="figurita__ficha">
+                        <h3>Arenita</h3>
+                        <p class="figurita__datos">5 años · Talla chica</p>
+                        <p class="figurita__club">Princesas FC</p>
+                        <span class="figurita__cta">Quiero conocerlo</span>
+                    </div>
+                </a>
+                <a class="figurita js-wa" data-wa-msg="Hola! Quiero saber más sobre Tigrecita">
+                    <div class="figurita__foto">
+                        <img src="/assets/images/plantel/tigrecita.jpg"
+                            alt="Tigrecita, 4 años, talla media, en adopción en Lujaneritos" loading="lazy"
+                            width="1024" height="1024">
+                    </div>
+                    <div class="figurita__ficha">
+                        <h3>Tigrecita</h3>
+                        <p class="figurita__datos">4 años · Talla media</p>
+                        <p class="figurita__club">Tanqueta FC</p>
+                        <span class="figurita__cta">Quiero conocerlo</span>
+                    </div>
+                </a>
             </div>
+
+            <p class="plantel__pie">
+                ¿No podés adoptar? Ser <strong>hogar de tránsito</strong> también les cambia la vida, y difundir
+                el álbum es gratis.
+            </p>
         </div>
     </section>
 
@@ -626,6 +897,15 @@
                         <p>Escribinos por WhatsApp con la ubicación y una foto. Somos un grupo chico y no siempre podemos
                             llevarnos al animal, pero te orientamos sobre qué hacer, cómo difundir el caso y cómo
                             conseguir atención veterinaria.</p>
+                    </div>
+                </details>
+                <details class="faq__item">
+                    <summary>¿Dónde castro gratis a mi perro o gato en Luján?</summary>
+                    <div class="faq__respuesta">
+                        <p>Podés anotarte con nosotros en las castraciones gratuitas de <strong>Zoonosis Luján</strong>.
+                            Escribinos por WhatsApp al 2323 53-8038 (sólo mensajes) y te pasamos los requisitos y las
+                            fechas disponibles. La castración es la forma más efectiva de evitar que sigan naciendo
+                            animales que terminan en la calle.</p>
                     </div>
                 </details>
                 <details class="faq__item">

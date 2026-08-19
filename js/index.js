@@ -9,10 +9,6 @@ const CONFIG = {
     /* Número de WhatsApp en formato internacional, sin + ni espacios.
        +54 9 2323 53-8038 */
     WHATSAPP: '5492323538038',
-
-    /* Poner en true cuando la organización confirme que quiere la sección
-       de adoptables, y cargar los animales en /data/adoptables.json */
-    ADOPTABLES_ACTIVO: false,
 };
 
 /* ---------------------------------------------------------
@@ -186,7 +182,7 @@ function initWhatsApp() {
    --------------------------------------------------------- */
 function initRevelar() {
     const objetivos = document.querySelectorAll(
-        '.tarjeta, .card, .historia, .ayuda, .monto, .cita, .faq__item'
+        '.tarjeta, .card, .historia, .ayuda, .monto, .cita, .faq__item, .destino, .figurita'
     );
     if (!objetivos.length) return;
 
@@ -211,48 +207,6 @@ function initRevelar() {
 }
 
 /* ---------------------------------------------------------
-   ADOPTABLES — apagado por flag hasta que lo confirmen
-   --------------------------------------------------------- */
-async function initAdoptables() {
-    const seccion = document.getElementById('adoptar');
-    const redes = document.getElementById('adoptar-redes');
-    const grid = document.getElementById('adoptar-grid');
-    if (!seccion || !grid) return;
-
-    if (!CONFIG.ADOPTABLES_ACTIVO) return; // queda oculta y se muestra el bloque de redes
-
-    try {
-        const res = await fetch('/data/adoptables.json', { cache: 'no-store' });
-        if (!res.ok) throw new Error(res.status);
-        const animales = await res.json();
-        if (!Array.isArray(animales) || !animales.length) return;
-
-        grid.innerHTML = animales
-            .map(
-                (a) => `
-        <article class="adoptable">
-          <img src="${a.foto}" alt="${a.nombre}, en adopción" loading="lazy" width="400" height="400">
-          <div class="adoptable__cuerpo">
-            <h3>${a.nombre}</h3>
-            <p class="adoptable__datos">${[a.edad, a.tamano, a.sexo].filter(Boolean).join(' · ')}</p>
-            <p>${a.descripcion || ''}</p>
-            <a class="btn btn--secundario js-wa" data-wa-msg="Hola! Quiero saber más sobre ${a.nombre}">Quiero conocerlo</a>
-          </div>
-        </article>`
-            )
-            .join('');
-
-        seccion.hidden = false;
-        if (redes) redes.hidden = true;
-
-        initWhatsApp(); // los botones recién creados también necesitan su href
-    } catch (e) {
-        // Si falla, la sección simplemente no aparece y queda el bloque de redes
-        console.warn('No se pudieron cargar los adoptables:', e);
-    }
-}
-
-/* ---------------------------------------------------------
    Año del footer
    --------------------------------------------------------- */
 function initAnio() {
@@ -268,5 +222,4 @@ document.addEventListener('DOMContentLoaded', () => {
     initWhatsApp();
     initRevelar();
     initAnio();
-    initAdoptables();
 });
