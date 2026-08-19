@@ -112,15 +112,44 @@ git add . && git commit -m "Actualizo la web" && git push
 
 ### Configuración inicial (una sola vez)
 
-1. **GitHub Pages** → Settings → Pages → Source: `main`, carpeta `/ (root)`.
-2. **NIC.ar** → delegar los nameservers del dominio a Cloudflare.
-3. **Cloudflare** → DNS:
-   - 4 registros `A` en `@` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - 1 registro `CNAME` en `www` → `juanchoalfonso.github.io`
-4. **Cloudflare → SSL/TLS → modo `Full`**. ⚠️ Si queda en `Flexible`, GitHub Pages entra en un bucle de redirección infinito y la página no carga. Es el error clásico de este setup.
-5. **GitHub Pages → Enforce HTTPS**, una vez que el dominio propague (puede tardar unas horas).
+**1. GitHub Pages** — ya activado (branch `main`, raíz, con el dominio del `CNAME`).
 
----
+**2. Cloudflare** → *Add a site* → `lujaneritos.com.ar` → plan **Free**.
+Al terminar te da dos nameservers, del estilo `xxx.ns.cloudflare.com`.
+
+**3. NIC.ar** → iniciar sesión → *Mis dominios* → `lujaneritos.com.ar` → **Delegaciones**.
+Reemplazar los nameservers por los dos de Cloudflare y guardar.
+La propagación puede tardar de minutos a varias horas.
+
+**4. Cloudflare → DNS** → agregar cinco registros:
+
+| Tipo | Nombre | Contenido | Proxy |
+|---|---|---|---|
+| A | @ | 185.199.108.153 | **DNS only** (nube gris) |
+| A | @ | 185.199.109.153 | **DNS only** |
+| A | @ | 185.199.110.153 | **DNS only** |
+| A | @ | 185.199.111.153 | **DNS only** |
+| CNAME | www | juanchoalfonso.github.io | **DNS only** |
+
+> ⚠️ Los cinco tienen que quedar en **DNS only** (nube gris), no en Proxied (naranja).
+> Con el proxy activado GitHub no puede validar el dominio para emitir el
+> certificado, y *Enforce HTTPS* nunca se habilita. Es el error más común de
+> este setup.
+
+**5. GitHub** → Settings → Pages → esperar a que aparezca el tilde verde en el
+dominio y tildar **Enforce HTTPS**. Puede tardar hasta 24 h en habilitarse.
+
+**6. (Opcional, después)** Si más adelante querés el proxy de Cloudflare (caché y
+analytics), recién ahí pasá los registros a Proxied y poné **SSL/TLS → Full**.
+Nunca *Flexible*: hace un bucle de redirección infinito con GitHub Pages.
+
+### Verificar que salió bien
+
+```bash
+curl -sI https://lujaneritos.com.ar | head -1
+```
+
+Tiene que devolver `HTTP/2 200`.
 
 ## Después de publicar
 
