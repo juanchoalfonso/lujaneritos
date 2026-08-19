@@ -142,6 +142,12 @@ function initMontos() {
 
             if (!alias || !aviso) return;
 
+            // Un solo monto seleccionado a la vez
+            botones.forEach((b) => {
+                b.classList.toggle('monto--activo', b === btn);
+                b.setAttribute('aria-pressed', String(b === btn));
+            });
+
             const monto = Number(btn.dataset.monto).toLocaleString('es-AR');
             const ok = await copiarTexto(alias.textContent.trim());
 
@@ -154,6 +160,10 @@ function initMontos() {
             volver = setTimeout(() => {
                 aviso.textContent = avisoOriginal;
                 aviso.classList.remove('montos__nota--activa');
+                botones.forEach((b) => {
+                    b.classList.remove('monto--activo');
+                    b.setAttribute('aria-pressed', 'false');
+                });
             }, 6000);
         });
     });

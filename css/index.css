@@ -21,6 +21,8 @@
     --coral-oscuro: #BE2531;
     --naranja-texto: #A05407;
     --rosa-suave: #FCE7DA;
+    --amarillo-suave: #FFF4DC;
+    --verde-menta: #E8F4EC;
     --crema: #FFF9F3;
     --blanco: #FFFFFF;
     --texto: #3A2A20;
@@ -305,10 +307,14 @@ section {
     border-bottom: none;
 }
 
-.nav__cta {
+/* Va con a.nav__cta: .nav__links a tiene mas especificidad que .nav__cta
+   sola y le pisaba el padding, dejando el texto fuera del boton. */
+a.nav__cta {
     margin-top: 10px;
+    padding: 12px 26px;
     border-bottom: none !important;
     color: var(--marron) !important;
+    white-space: nowrap;
 }
 
 .nav__burger {
@@ -377,24 +383,31 @@ section {
 
 .hero__kicker {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    font-size: .74rem;
-    font-weight: 700;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--texto-suave);
-    margin-bottom: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
 }
 
 .hero__pill {
-    padding: 6px 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 16px;
     background: var(--amarillo);
     border: 2px solid var(--marron);
     border-radius: 999px;
+    font-family: 'Nunito', sans-serif;
+    font-size: .82rem;
+    font-weight: 800;
     color: var(--marron);
-    letter-spacing: .06em;
+    white-space: nowrap;
+}
+
+.hero__lugar {
+    font-size: .84rem;
+    font-weight: 600;
+    color: var(--texto-suave);
 }
 
 .hero__titulo {
@@ -475,90 +488,56 @@ section {
 }
 
 /* =========================================================
-   EMERGENCIA
+   EN QUE SE USA TU AYUDA
    ========================================================= */
 .emergencia {
-    background: var(--marron);
-    color: rgba(255, 255, 255, .84);
+    background: var(--amarillo-suave);
+    border-top: 1px solid var(--borde);
+    border-bottom: 1px solid var(--borde);
     text-align: center;
 }
 
-.emergencia__tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    padding: 7px 16px;
-    margin-bottom: 16px;
-    background: rgba(214, 50, 61, .22);
-    border: 1px solid var(--coral);
-    border-radius: 999px;
-    font-size: .76rem;
-    font-weight: 700;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: #FFC9CC;
-}
-
-.emergencia__pulso {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: var(--coral);
-    animation: pulso 1.8s ease-in-out infinite;
-}
-
-@keyframes pulso {
-
-    0%,
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: .35;
-        transform: scale(.8);
-    }
-}
-
-.emergencia__titulo {
-    font-size: 1.7rem;
-    font-weight: 900;
-    color: var(--blanco);
-    margin-bottom: 12px;
-}
-
-.emergencia__texto {
-    margin-bottom: 20px;
-}
-
-.emergencia__lista {
-    list-style: none;
+.destinos {
     display: grid;
-    gap: 10px;
-    margin-bottom: 22px;
-    text-align: left;
+    gap: 16px;
+    margin-bottom: 30px;
 }
 
-.emergencia__lista li {
-    padding: 14px 16px 14px 44px;
-    position: relative;
-    background: rgba(255, 255, 255, .06);
-    border-left: 3px solid var(--coral);
-    border-radius: 0 var(--radio-chico) var(--radio-chico) 0;
-    font-size: .95rem;
+.destino {
+    padding: 26px 22px;
+    background: var(--blanco);
+    border: 2px solid var(--borde);
+    border-radius: var(--radio);
+    transition: var(--transicion);
 }
 
-.emergencia__lista li::before {
-    content: "⛔";
-    position: absolute;
-    left: 14px;
-    top: 13px;
-    font-size: .95rem;
+.destino:hover {
+    transform: translateY(-4px);
+    border-color: var(--amarillo);
+    box-shadow: var(--sombra-fuerte);
 }
 
-.emergencia__lista strong {
-    color: var(--blanco);
+.destino__icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 62px;
+    height: 62px;
+    margin: 0 auto 14px;
+    background: var(--amarillo-suave);
+    border-radius: 50%;
+    font-size: 1.8rem;
+}
+
+.destino h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.destino p {
+    font-size: .93rem;
+    color: var(--texto-suave);
 }
 
 .emergencia__cierre {
@@ -567,76 +546,11 @@ section {
     font-family: 'Nunito', sans-serif;
     font-size: 1.05rem;
     font-style: italic;
-    color: var(--amarillo);
+    color: var(--naranja-texto);
 }
 
 .emergencia .btn {
     max-width: 340px;
-}
-
-/* =========================================================
-   CASO ACTIVO
-   ========================================================= */
-.caso {
-    background: var(--blanco);
-    border-bottom: 1px solid var(--borde);
-}
-
-.caso__grid {
-    display: grid;
-    gap: 26px;
-}
-
-.caso__fotos {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-}
-
-.caso__fotos img {
-    width: 100%;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-    border-radius: var(--radio);
-    box-shadow: var(--sombra);
-}
-
-.caso__cuerpo p {
-    margin-bottom: 14px;
-    color: var(--texto-suave);
-}
-
-.caso__necesita {
-    margin: 22px 0;
-    padding: 18px 20px;
-    background: var(--rosa-suave);
-    border-radius: var(--radio);
-}
-
-.caso__necesita h3 {
-    font-size: 1.05rem;
-    font-weight: 800;
-    margin-bottom: 12px;
-}
-
-.caso__necesita .lista-check {
-    margin-bottom: 0;
-}
-
-.caso__frase {
-    padding-left: 16px;
-    border-left: 4px solid var(--amarillo);
-    font-family: 'Nunito', sans-serif;
-    font-size: 1.05rem;
-    font-style: italic;
-    color: var(--marron) !important;
-}
-
-.caso__ctas {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
 }
 
 /* =========================================================
@@ -739,15 +653,25 @@ section {
     transition: var(--transicion);
 }
 
-.monto:hover {
-    border-color: var(--coral);
-    transform: translateY(-3px);
-    box-shadow: var(--sombra);
+/* El hover solo en dispositivos que realmente tienen puntero:
+   en tactil se quedaba "pegado" despues de tocar. */
+@media (hover: hover) {
+    .monto:hover {
+        border-color: var(--amarillo);
+        transform: translateY(-3px);
+        box-shadow: var(--sombra);
+    }
 }
 
-.monto--destacado {
-    border-color: var(--coral);
-    background: #FFF1EC;
+/* Seleccionado: lo pone y lo saca el JS, uno solo a la vez */
+.monto--activo {
+    background: var(--amarillo-suave);
+    border-color: var(--marron);
+}
+
+.monto--activo .monto__cifra::after {
+    content: " ✓";
+    color: var(--naranja-texto);
 }
 
 .monto__cifra {
@@ -774,6 +698,11 @@ section {
 /* =========================================================
    QUIÉNES SOMOS
    ========================================================= */
+.nosotros {
+    background: var(--verde-menta);
+    border-top: 1px solid var(--borde);
+}
+
 .nosotros__grid {
     display: grid;
     gap: 28px;
@@ -787,7 +716,7 @@ section {
 .cita {
     margin-top: 22px;
     padding: 18px 20px;
-    background: var(--rosa-suave);
+    background: var(--blanco);
     border-left: 4px solid var(--naranja);
     border-radius: 0 var(--radio-chico) var(--radio-chico) 0;
 }
@@ -882,6 +811,11 @@ section {
 
 .galeria__item:hover img {
     transform: scale(1.05);
+}
+
+.historias {
+    background: var(--rosa-suave);
+    border-top: 1px solid var(--borde);
 }
 
 .historias__grid {
@@ -1182,20 +1116,20 @@ section {
    CIERRE
    ========================================================= */
 .cierre {
-    background: linear-gradient(150deg, var(--marron), var(--naranja));
-    color: var(--blanco);
+    background: linear-gradient(150deg, var(--amarillo) 0%, #FBA83C 55%, var(--naranja) 100%);
+    color: var(--marron);
     text-align: center;
 }
 
 .cierre h2 {
     font-size: 1.7rem;
     font-weight: 900;
-    color: var(--blanco);
+    color: var(--marron);
     margin-bottom: 12px;
 }
 
 .cierre p {
-    color: rgba(255, 255, 255, .88);
+    color: var(--marron);
     max-width: 520px;
     margin: 0 auto 26px;
 }
@@ -1298,7 +1232,7 @@ section {
    REDES SOCIALES
    ========================================================= */
 .redes {
-    background: var(--rosa-suave);
+    background: var(--amarillo-suave);
     border-top: 1px solid var(--borde);
 }
 
@@ -1546,11 +1480,7 @@ section {
         max-width: none;
     }
 
-    .hero__kicker {
-        flex-direction: row;
-        align-items: center;
-        gap: 12px;
-    }
+
 
     .btn--grande {
         width: auto;
@@ -1659,9 +1589,10 @@ section {
         color: var(--naranja);
     }
 
-    .nav__cta {
+    a.nav__cta {
         margin-top: 0;
-        padding: 10px 24px;
+        padding: 10px 26px;
+        min-height: 44px;
     }
 
     .nav__logo {
