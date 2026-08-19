@@ -7,7 +7,7 @@
     <title>Lujaneritos | Protectora de animales en Luján — Rescate y adopción</title>
     <meta name="description"
         content="Asociación civil sin fines de lucro de Luján. Desde 2019 rescatamos perros y gatos en situación de calle, los recuperamos y les buscamos un hogar definitivo. Doná por MercadoPago y ayudanos a seguir.">
-    <meta name="theme-color" content="#17493F">
+    <meta name="theme-color" content="#3F2417">
     <link rel="canonical" href="https://lujaneritos.com.ar/">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" href="/assets/images_marca/favicon.png" type="image/png">
@@ -126,12 +126,44 @@
 
 <body>
 
+    <!-- ============================================ ÍCONOS ============================================
+         Sprite SVG: se define una vez y se reutiliza con <use href="#i-...">.
+         Así los íconos no pesan ni piden archivos extra al servidor. -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+        <defs>
+            <symbol id="i-whatsapp" viewBox="0 0 32 32">
+                <path fill="currentColor"
+                    d="M16.004 0h-.008C7.174 0 .002 7.174.002 16c0 3.5 1.128 6.744 3.046 9.376l-1.994 5.94 6.15-1.966A15.9 15.9 0 0 0 16.004 32C24.83 32 32 24.826 32 16S24.83 0 16.004 0Zm9.31 22.594c-.386 1.09-1.918 1.994-3.14 2.258-.836.178-1.928.32-5.604-1.204-4.702-1.948-7.73-6.726-7.966-7.036-.226-.31-1.9-2.53-1.9-4.826s1.166-3.424 1.636-3.904c.386-.394.914-.574 1.42-.574.164 0 .312.008.444.014.408.018.614.042.884.686.336.81 1.154 2.806 1.252 3.012.1.206.2.486.06.796-.13.32-.244.442-.45.68-.206.238-.402.42-.608.676-.188.222-.4.46-.164.87.238.402 1.056 1.738 2.26 2.81 1.554 1.384 2.814 1.826 3.266 2.014.336.14.738.106 1.004-.178.338-.364.754-.968 1.178-1.562.302-.426.682-.478 1.082-.328.408.14 2.394 1.128 2.838 1.35.444.222.738.328.846.514.106.188.106 1.07-.28 2.16Z" />
+            </symbol>
+            <symbol id="i-instagram" viewBox="0 0 32 32">
+                <path fill="currentColor"
+                    d="M16 2.88c4.27 0 4.78.017 6.465.093 1.56.071 2.406.332 2.97.55.746.29 1.279.637 1.838 1.196.56.56.906 1.092 1.196 1.838.219.564.48 1.41.55 2.97.077 1.686.093 2.192.093 6.465s-.016 4.78-.093 6.465c-.07 1.56-.331 2.406-.55 2.97-.29.746-.637 1.279-1.196 1.838-.56.56-1.092.906-1.838 1.196-.564.219-1.41.48-2.97.55-1.686.077-2.192.093-6.465.093s-4.78-.016-6.465-.093c-1.56-.07-2.406-.331-2.97-.55-.746-.29-1.279-.637-1.838-1.196-.56-.56-.906-1.092-1.196-1.838-.219-.564-.48-1.41-.55-2.97C2.896 20.78 2.88 20.273 2.88 16s.016-4.78.093-6.465c.07-1.56.331-2.406.55-2.97.29-.746.637-1.279 1.196-1.838.56-.56 1.092-.906 1.838-1.196.564-.219 1.41-.48 2.97-.55C11.22 2.896 11.727 2.88 16 2.88ZM16 0c-4.346 0-4.891.018-6.596.096-1.702.078-2.865.348-3.882.744-1.051.408-1.943.955-2.831 1.844C1.803 3.572 1.256 4.464.848 5.515.452 6.532.182 7.695.104 9.397.026 11.102.008 11.647.008 16s.018 4.898.096 6.603c.078 1.702.348 2.865.744 3.882.408 1.051.955 1.943 1.844 2.831.888.889 1.78 1.436 2.831 1.844 1.017.396 2.18.666 3.882.744 1.705.078 2.25.096 6.596.096s4.891-.018 6.596-.096c1.702-.078 2.865-.348 3.882-.744 1.051-.408 1.943-.955 2.831-1.844.889-.888 1.436-1.78 1.844-2.831.396-1.017.666-2.18.744-3.882.078-1.705.096-2.25.096-6.603s-.018-4.898-.096-6.603c-.078-1.702-.348-2.865-.744-3.882-.408-1.051-.955-1.943-1.844-2.831C28.428 1.803 27.536 1.256 26.485.848 25.468.452 24.305.182 22.603.104 20.898.026 20.353.008 16 .008Z" />
+                <path fill="currentColor"
+                    d="M16 7.784a8.216 8.216 0 1 0 0 16.432 8.216 8.216 0 0 0 0-16.432Zm0 13.55a5.334 5.334 0 1 1 0-10.668 5.334 5.334 0 0 1 0 10.668ZM26.46 7.46a1.92 1.92 0 1 1-3.84 0 1.92 1.92 0 0 1 3.84 0Z" />
+            </symbol>
+            <symbol id="i-facebook" viewBox="0 0 32 32">
+                <path fill="currentColor"
+                    d="M32 16c0-8.837-7.163-16-16-16S0 7.163 0 16c0 7.986 5.851 14.605 13.5 15.806V20.625H9.437V16H13.5v-3.525c0-4.01 2.389-6.225 6.043-6.225 1.751 0 3.582.313 3.582.313V10.5h-2.018c-1.988 0-2.607 1.233-2.607 2.498V16h4.438l-.71 4.625H18.5v11.181C26.149 30.605 32 23.986 32 16Z" />
+            </symbol>
+            <symbol id="i-tiktok" viewBox="0 0 32 32">
+                <path fill="currentColor"
+                    d="M22.9 0h-5.32v21.5a4.4 4.4 0 0 1-4.4 4.28 4.36 4.36 0 0 1-4.4-4.28 4.31 4.31 0 0 1 4.05-4.27v-5.39c-5.19.27-9.37 4.53-9.37 9.66 0 5.31 4.4 9.5 9.76 9.5 5.35 0 9.75-4.23 9.75-9.5V10.44a12 12 0 0 0 6.98 2.23V7.28c-3.9-.13-6.99-3.3-7.05-7.28Z" />
+            </symbol>
+            <symbol id="i-huella" viewBox="0 0 32 32">
+                <path fill="currentColor"
+                    d="M8.6 13.4c1.8 0 3.2-2 3.2-4.5S10.4 4.4 8.6 4.4 5.4 6.4 5.4 8.9s1.4 4.5 3.2 4.5Zm14.8 0c1.8 0 3.2-2 3.2-4.5s-1.4-4.5-3.2-4.5-3.2 2-3.2 4.5 1.4 4.5 3.2 4.5ZM3.4 21.5c1.6 0 2.9-1.8 2.9-4s-1.3-4-2.9-4-2.9 1.8-2.9 4 1.3 4 2.9 4Zm25.2 0c1.6 0 2.9-1.8 2.9-4s-1.3-4-2.9-4-2.9 1.8-2.9 4 1.3 4 2.9 4ZM16 15.2c-4.2 0-8.6 4.9-8.6 9.4 0 2.6 1.8 4.2 4.3 4.2 1.7 0 3.1-.8 4.3-.8s2.6.8 4.3.8c2.5 0 4.3-1.6 4.3-4.2 0-4.5-4.4-9.4-8.6-9.4Z" />
+            </symbol>
+        </defs>
+    </svg>
+
     <!-- ============================================ NAV ============================================ -->
     <header class="nav" id="nav">
         <div class="contenedor nav__inner">
             <a href="#inicio" class="nav__logo" aria-label="Lujaneritos — inicio">
-                <!-- TODO:DATO — reemplazar por <img src="/assets/images_marca/logo.png" alt="Lujaneritos"> -->
-                <span class="nav__logo-huella" aria-hidden="true">🐾</span>
+                <!-- TODO:DATO — reemplazar por <img src="/assets/images_marca/logo.png" alt="Lujaneritos" width="44" height="44"> -->
+                <span class="nav__logo-marca" aria-hidden="true">
+                    <svg viewBox="0 0 32 32"><use href="#i-huella"></use></svg>
+                </span>
                 <span class="nav__logo-texto">Lujaneritos</span>
             </a>
 
@@ -186,17 +218,15 @@
                     <p class="tarjeta__texto">Copialo y pegalo en tu app de banco o billetera.</p>
 
                     <div class="alias">
-                        <!-- TODO:DATO — reemplazar por el alias real de MercadoPago -->
-                        <code class="alias__valor" id="alias-valor">lujaneritos.mp</code>
+                        <code class="alias__valor" id="alias-valor">equis.lujan</code>
                         <button class="btn btn--copiar" id="btn-copiar-alias" data-copiar="#alias-valor"
                             aria-label="Copiar alias al portapapeles">
                             Copiar
                         </button>
                     </div>
-                    <p class="alias__titular">
-                        <!-- TODO:DATO — nombre del titular de la cuenta -->
-                        Titular: Asociación Civil Lujaneritos
-                    </p>
+                    <!-- TODO:DATO — cuando lo confirmen, descomentar y poner el titular real de la cuenta
+                    <p class="alias__titular">Titular: —</p>
+                    -->
                 </div>
 
                 <!-- QR -->
@@ -214,31 +244,35 @@
 
             </div>
 
-            <!-- Montos sugeridos -->
+            <!-- Montos sugeridos.
+                 Al tocar uno se copia el alias, así el donante ya sabe cuánto transferir.
+                 TODO:DATO — si más adelante crean links de pago en MercadoPago, se les puede
+                 poner data-link="https://mpago.la/xxxx" a cada botón y pasan a abrir el pago directo. -->
             <div class="montos">
                 <h3 class="montos__titulo">Elegí un monto</h3>
                 <div class="montos__grid">
-                    <!-- TODO:DATO — reemplazar los href por los links de pago de MercadoPago -->
-                    <a class="monto" href="#" data-monto="2000">
+                    <button class="monto" type="button" data-monto="2000">
                         <span class="monto__cifra">$2.000</span>
-                        <span class="monto__que">Una pastilla antipulgas</span>
-                    </a>
-                    <a class="monto" href="#" data-monto="5000">
+                    </button>
+                    <button class="monto" type="button" data-monto="5000">
                         <span class="monto__cifra">$5.000</span>
-                        <span class="monto__que">Alimento para una semana</span>
-                    </a>
-                    <a class="monto monto--destacado" href="#" data-monto="10000">
+                    </button>
+                    <button class="monto monto--destacado" type="button" data-monto="10000">
                         <span class="monto__cifra">$10.000</span>
-                        <span class="monto__que">Una vacuna</span>
-                    </a>
-                    <a class="monto" href="#" data-monto="0">
-                        <span class="monto__cifra">Otro monto</span>
-                        <span class="monto__que">El que vos quieras</span>
-                    </a>
+                    </button>
+                    <button class="monto" type="button" data-monto="20000">
+                        <span class="monto__cifra">$20.000</span>
+                    </button>
                 </div>
-                <p class="montos__nota">
-                    <!-- TODO:DATO — confirmar equivalencias reales con la organización antes de publicar -->
-                    Los valores son de referencia y los actualizamos según los costos del momento.
+                <p class="montos__nota" id="montos-aviso" role="status">
+                    Tocá un monto y te copiamos el alias. Cualquier aporte suma.
+                </p>
+
+                <!-- TODO:DATO — si consiguen el logo oficial de Mercado Pago desde su kit de marca,
+                     reemplazar este badge por la imagen. Mientras, va el nombre sobre su color. -->
+                <p class="mp-badge">
+                    <span class="mp-badge__punto" aria-hidden="true"></span>
+                    Transferencias por <strong>Mercado Pago</strong> y cualquier banco o billetera
                 </p>
             </div>
 
@@ -502,6 +536,47 @@
         </div>
     </section>
 
+    <!-- ============================================ REDES ============================================ -->
+    <section class="redes" id="redes">
+        <div class="contenedor redes__inner">
+            <p class="seccion__kicker">Seguinos</p>
+            <h2 class="seccion__titulo">Todos los días pasa algo</h2>
+            <p class="seccion__bajada">Rescates, novedades y finales felices. Seguinos y compartí: difundir también
+                es ayudar.</p>
+
+            <div class="redes__grid">
+                <a class="red red--ig" href="https://www.instagram.com/lujaneritos/" target="_blank" rel="noopener">
+                    <svg class="red__ico" viewBox="0 0 32 32" aria-hidden="true">
+                        <use href="#i-instagram"></use>
+                    </svg>
+                    <span class="red__nombre">Instagram</span>
+                    <span class="red__handle">@lujaneritos</span>
+                </a>
+                <a class="red red--fb" href="https://www.facebook.com/lujaneritos/" target="_blank" rel="noopener">
+                    <svg class="red__ico" viewBox="0 0 32 32" aria-hidden="true">
+                        <use href="#i-facebook"></use>
+                    </svg>
+                    <span class="red__nombre">Facebook</span>
+                    <span class="red__handle">/lujaneritos</span>
+                </a>
+                <a class="red red--tt" href="https://www.tiktok.com/@lujaneritos" target="_blank" rel="noopener">
+                    <svg class="red__ico" viewBox="0 0 32 32" aria-hidden="true">
+                        <use href="#i-tiktok"></use>
+                    </svg>
+                    <span class="red__nombre">TikTok</span>
+                    <span class="red__handle">@lujaneritos</span>
+                </a>
+                <a class="red red--wa js-wa" data-wa-msg="Hola! Vengo de la página web de Lujaneritos">
+                    <svg class="red__ico" viewBox="0 0 32 32" aria-hidden="true">
+                        <use href="#i-whatsapp"></use>
+                    </svg>
+                    <span class="red__nombre">WhatsApp</span>
+                    <span class="red__handle">Escribinos</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- ============================================ CIERRE / CTA FINAL ============================================ -->
     <section class="cierre">
         <div class="contenedor cierre__inner">
@@ -521,17 +596,42 @@
                     Luján, Provincia de Buenos Aires, Argentina.<br>
                     Rescatando desde 2019.
                 </p>
-                <!-- TODO:DATO — CUIT y número de personería jurídica -->
-                <p class="footer__legal-datos">CUIT: — · Personería jurídica: —</p>
             </div>
 
             <div class="footer__col">
-                <h3>Contacto</h3>
+                <h3>Seguinos</h3>
                 <ul class="footer__lista">
-                    <li><a class="js-wa" data-wa-msg="Hola! Vengo de la página web">WhatsApp</a></li>
-                    <li><a href="https://www.instagram.com/lujaneritos/" target="_blank" rel="noopener">Instagram</a></li>
-                    <li><a href="https://www.facebook.com/lujaneritos/" target="_blank" rel="noopener">Facebook</a></li>
-                    <li><a href="https://www.tiktok.com/@lujaneritos" target="_blank" rel="noopener">TikTok</a></li>
+                    <li>
+                        <a class="js-wa footer__social" data-wa-msg="Hola! Vengo de la página web">
+                            <svg class="ico" viewBox="0 0 32 32" aria-hidden="true">
+                                <use href="#i-whatsapp"></use>
+                            </svg> WhatsApp
+                        </a>
+                    </li>
+                    <li>
+                        <a class="footer__social" href="https://www.instagram.com/lujaneritos/" target="_blank"
+                            rel="noopener">
+                            <svg class="ico" viewBox="0 0 32 32" aria-hidden="true">
+                                <use href="#i-instagram"></use>
+                            </svg> Instagram
+                        </a>
+                    </li>
+                    <li>
+                        <a class="footer__social" href="https://www.facebook.com/lujaneritos/" target="_blank"
+                            rel="noopener">
+                            <svg class="ico" viewBox="0 0 32 32" aria-hidden="true">
+                                <use href="#i-facebook"></use>
+                            </svg> Facebook
+                        </a>
+                    </li>
+                    <li>
+                        <a class="footer__social" href="https://www.tiktok.com/@lujaneritos" target="_blank"
+                            rel="noopener">
+                            <svg class="ico" viewBox="0 0 32 32" aria-hidden="true">
+                                <use href="#i-tiktok"></use>
+                            </svg> TikTok
+                        </a>
+                    </li>
                 </ul>
             </div>
 
@@ -556,9 +656,8 @@
     <!-- ============================================ BOTÓN FLOTANTE WHATSAPP ============================================ -->
     <a class="whatsapp-float js-wa" data-wa-msg="Hola! Vengo de la página web de Lujaneritos"
         aria-label="Contactar por WhatsApp">
-        <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor" aria-hidden="true">
-            <path
-                d="M16.004 0h-.008C7.174 0 .002 7.174.002 16c0 3.5 1.128 6.744 3.046 9.376l-1.994 5.94 6.15-1.966A15.9 15.9 0 0 0 16.004 32C24.83 32 32 24.826 32 16S24.83 0 16.004 0Zm9.31 22.594c-.386 1.09-1.918 1.994-3.14 2.258-.836.178-1.928.32-5.604-1.204-4.702-1.948-7.73-6.726-7.966-7.036-.226-.31-1.9-2.53-1.9-4.826s1.166-3.424 1.636-3.904c.386-.394.914-.574 1.42-.574.164 0 .312.008.444.014.408.018.614.042.884.686.336.81 1.154 2.806 1.252 3.012.1.206.2.486.06.796-.13.32-.244.442-.45.68-.206.238-.402.42-.608.676-.188.222-.4.46-.164.87.238.402 1.056 1.738 2.26 2.81 1.554 1.384 2.814 1.826 3.266 2.014.336.14.738.106 1.004-.178.338-.364.754-.968 1.178-1.562.302-.426.682-.478 1.082-.328.408.14 2.394 1.128 2.838 1.35.444.222.738.328.846.514.106.188.106 1.07-.28 2.16Z" />
+        <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
+            <use href="#i-whatsapp"></use>
         </svg>
     </a>
 

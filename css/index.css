@@ -5,23 +5,32 @@
    ========================================================= */
 
 :root {
-    /* Paleta — TODO:DATO ajustar a los colores del logo cuando llegue */
-    --verde-profundo: #17493F;
-    --verde: #2A7F62;
-    --verde-claro: #E7F1EC;
-    --naranja: #E4622A;
-    --naranja-oscuro: #C44F1D;
-    --ambar: #F2A93B;
-    --crema: #FDF8F1;
+    /* Paleta tomada del logo:
+       marrón del contorno, amarillo de la casita, naranja del gato,
+       coral del lettering y rosa pálido del anillo exterior. */
+    --marron: #3F2417;
+    --naranja: #E8811C;
+    --amarillo: #FBC24C;
+    --coral: #FA5C64;
+
+    /* Los tonos del logo son muy claros para llevar texto blanco encima o
+       para usarse como texto sobre el fondo crema: no llegan al contraste
+       mínimo de WCAG AA. Estas versiones oscurecidas son las que se usan
+       cuando hay texto de por medio; las claras quedan para bordes e íconos. */
+    --coral-btn: #D6323D;
+    --coral-oscuro: #BE2531;
+    --naranja-texto: #A05407;
+    --rosa-suave: #FCE7DA;
+    --crema: #FFF9F3;
     --blanco: #FFFFFF;
-    --texto: #23302C;
-    --texto-suave: #5C6B66;
-    --borde: #E6DCCF;
+    --texto: #3A2A20;
+    --texto-suave: #7C6558;
+    --borde: #F1DFD1;
 
     --radio: 14px;
     --radio-chico: 10px;
-    --sombra: 0 4px 20px rgba(23, 73, 63, .08);
-    --sombra-fuerte: 0 10px 34px rgba(23, 73, 63, .16);
+    --sombra: 0 4px 20px rgba(63, 36, 23, .09);
+    --sombra-fuerte: 0 10px 34px rgba(63, 36, 23, .18);
     --transicion: all .25s ease;
 
     --nav-alto: 64px;
@@ -71,12 +80,12 @@ h2,
 h3 {
     font-family: 'Nunito', system-ui, sans-serif;
     line-height: 1.18;
-    color: var(--verde-profundo);
+    color: var(--marron);
     text-wrap: balance;
 }
 
 :focus-visible {
-    outline: 3px solid var(--ambar);
+    outline: 3px solid var(--amarillo);
     outline-offset: 3px;
     border-radius: 4px;
 }
@@ -103,7 +112,7 @@ section {
     font-weight: 700;
     letter-spacing: .14em;
     text-transform: uppercase;
-    color: var(--verde);
+    color: var(--naranja-texto);
     text-align: center;
     margin-bottom: 10px;
 }
@@ -148,23 +157,23 @@ section {
 }
 
 .btn--donar {
-    background: var(--naranja);
+    background: var(--coral-btn);
     color: var(--blanco);
-    box-shadow: 0 4px 14px rgba(228, 98, 42, .3);
+    box-shadow: 0 4px 14px rgba(214, 50, 61, .3);
 }
 
 .btn--donar:hover {
-    background: var(--naranja-oscuro);
+    background: var(--coral-oscuro);
     transform: translateY(-2px);
 }
 
 .btn--secundario {
-    background: var(--verde-profundo);
+    background: var(--marron);
     color: var(--blanco);
 }
 
 .btn--secundario:hover {
-    background: var(--verde);
+    background: var(--naranja-texto);
     transform: translateY(-2px);
 }
 
@@ -187,7 +196,7 @@ section {
 }
 
 .btn--copiar {
-    background: var(--verde-profundo);
+    background: var(--marron);
     color: var(--blanco);
     min-height: 44px;
     padding: 10px 20px;
@@ -196,11 +205,11 @@ section {
 }
 
 .btn--copiar:hover {
-    background: var(--verde);
+    background: var(--naranja-texto);
 }
 
 .btn--copiar.copiado {
-    background: var(--verde);
+    background: var(--naranja-texto);
 }
 
 /* =========================================================
@@ -213,7 +222,7 @@ section {
     right: 0;
     z-index: 100;
     height: var(--nav-alto);
-    background: rgba(253, 248, 241, .92);
+    background: rgba(255, 249, 243, .93);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid transparent;
@@ -239,11 +248,26 @@ section {
     font-family: 'Nunito', sans-serif;
     font-weight: 900;
     font-size: 1.2rem;
-    color: var(--verde-profundo);
+    color: var(--marron);
 }
 
-.nav__logo-huella {
-    font-size: 1.4rem;
+/* Marca del nav: círculo como el del logo, con la huella adentro */
+.nav__logo-marca {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--amarillo);
+    border: 2px solid var(--marron);
+    flex-shrink: 0;
+}
+
+.nav__logo-marca svg {
+    width: 20px;
+    height: 20px;
+    color: var(--marron);
 }
 
 .nav__links {
@@ -299,7 +323,7 @@ section {
     display: block;
     height: 2.5px;
     width: 100%;
-    background: var(--verde-profundo);
+    background: var(--marron);
     border-radius: 2px;
     transition: var(--transicion);
 }
@@ -335,8 +359,8 @@ section {
     /* TODO:DATO — cuando llegue la foto del hero:
        background-image: linear-gradient(...), url('/assets/images/hero.webp'); */
     background:
-        radial-gradient(circle at 20% 20%, rgba(242, 169, 59, .28), transparent 55%),
-        linear-gradient(150deg, var(--verde-profundo) 0%, #1E6350 55%, var(--verde) 100%);
+        radial-gradient(circle at 20% 20%, rgba(251, 194, 76, .38), transparent 55%),
+        linear-gradient(150deg, var(--marron) 0%, #6B3B22 55%, var(--naranja) 100%);
 }
 
 .hero__inner {
@@ -349,7 +373,7 @@ section {
     font-weight: 700;
     letter-spacing: .1em;
     text-transform: uppercase;
-    color: var(--ambar);
+    color: var(--amarillo);
     margin-bottom: 14px;
 }
 
@@ -390,7 +414,7 @@ section {
 }
 
 .tarjeta {
-    background: var(--verde-claro);
+    background: var(--rosa-suave);
     border: 1px solid var(--borde);
     border-radius: var(--radio);
     padding: 24px 20px;
@@ -414,7 +438,7 @@ section {
     align-items: stretch;
     gap: 8px;
     background: var(--blanco);
-    border: 2px dashed var(--verde);
+    border: 2px dashed var(--naranja);
     border-radius: var(--radio-chico);
     padding: 8px;
 }
@@ -428,7 +452,7 @@ section {
     font-size: 1.1rem;
     font-weight: 700;
     letter-spacing: .02em;
-    color: var(--verde-profundo);
+    color: var(--marron);
     word-break: break-all;
 }
 
@@ -462,44 +486,48 @@ section {
     align-items: center;
     justify-content: center;
     gap: 4px;
-    min-height: 92px;
+    width: 100%;
+    min-height: 72px;
     padding: 14px 10px;
     background: var(--blanco);
     border: 2px solid var(--borde);
     border-radius: var(--radio);
+    font: inherit;
     text-align: center;
+    cursor: pointer;
     transition: var(--transicion);
 }
 
 .monto:hover {
-    border-color: var(--naranja);
+    border-color: var(--coral);
     transform: translateY(-3px);
     box-shadow: var(--sombra);
 }
 
 .monto--destacado {
-    border-color: var(--naranja);
-    background: #FFF6F1;
+    border-color: var(--coral);
+    background: #FFF1EC;
 }
 
 .monto__cifra {
     font-family: 'Nunito', sans-serif;
     font-size: 1.2rem;
     font-weight: 900;
-    color: var(--verde-profundo);
-}
-
-.monto__que {
-    font-size: .8rem;
-    line-height: 1.35;
-    color: var(--texto-suave);
+    color: var(--marron);
 }
 
 .montos__nota {
     margin-top: 16px;
+    min-height: 42px;
     text-align: center;
-    font-size: .82rem;
+    font-size: .88rem;
     color: var(--texto-suave);
+    transition: var(--transicion);
+}
+
+.montos__nota--activa {
+    font-weight: 700;
+    color: var(--marron);
 }
 
 /* =========================================================
@@ -518,8 +546,8 @@ section {
 .cita {
     margin-top: 22px;
     padding: 18px 20px;
-    background: var(--verde-claro);
-    border-left: 4px solid var(--verde);
+    background: var(--rosa-suave);
+    border-left: 4px solid var(--naranja);
     border-radius: 0 var(--radio-chico) var(--radio-chico) 0;
 }
 
@@ -527,14 +555,14 @@ section {
     font-family: 'Nunito', sans-serif;
     font-size: 1.05rem;
     font-style: italic;
-    color: var(--verde-profundo) !important;
+    color: var(--marron) !important;
     margin-bottom: 8px !important;
 }
 
 .cita footer {
     font-size: .86rem;
     font-weight: 600;
-    color: var(--verde);
+    color: var(--naranja-texto);
 }
 
 /* =========================================================
@@ -634,8 +662,8 @@ section {
 }
 
 .ayuda--destacada {
-    background: linear-gradient(160deg, var(--verde-claro), #FFF6F1);
-    border-color: var(--naranja);
+    background: linear-gradient(160deg, var(--rosa-suave), #FFF1EC);
+    border-color: var(--coral);
 }
 
 .ayuda__icono {
@@ -658,7 +686,7 @@ section {
 .ayuda__nota {
     font-size: .88rem !important;
     font-style: italic;
-    color: var(--verde) !important;
+    color: var(--naranja-texto) !important;
 }
 
 .ayuda .btn {
@@ -729,7 +757,7 @@ section {
     font-weight: 600;
     letter-spacing: .04em;
     text-transform: uppercase;
-    color: var(--verde);
+    color: var(--naranja-texto);
     margin-bottom: 10px;
 }
 
@@ -747,7 +775,7 @@ section {
 }
 
 .adoptar-redes {
-    background: var(--verde-claro);
+    background: var(--rosa-suave);
     border-top: 1px solid var(--borde);
     border-bottom: 1px solid var(--borde);
 }
@@ -805,7 +833,7 @@ section {
     font-family: 'Nunito', sans-serif;
     font-weight: 700;
     font-size: 1rem;
-    color: var(--verde-profundo);
+    color: var(--marron);
     cursor: pointer;
     list-style: none;
 }
@@ -818,7 +846,7 @@ section {
     content: "+";
     font-size: 1.5rem;
     font-weight: 400;
-    color: var(--verde);
+    color: var(--naranja);
     flex-shrink: 0;
     transition: var(--transicion);
 }
@@ -837,7 +865,7 @@ section {
    CIERRE
    ========================================================= */
 .cierre {
-    background: linear-gradient(150deg, var(--verde-profundo), var(--verde));
+    background: linear-gradient(150deg, var(--marron), var(--naranja));
     color: var(--blanco);
     text-align: center;
 }
@@ -863,7 +891,7 @@ section {
    FOOTER
    ========================================================= */
 .footer {
-    background: var(--verde-profundo);
+    background: var(--marron);
     color: rgba(255, 255, 255, .8);
     padding-top: 44px;
 }
@@ -915,7 +943,20 @@ section {
 }
 
 .footer__lista a:hover {
-    color: var(--ambar);
+    color: var(--amarillo);
+}
+
+.footer__social {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.ico {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: currentColor;
 }
 
 .footer__base {
@@ -924,6 +965,112 @@ section {
     font-size: .84rem;
     text-align: center;
     color: rgba(255, 255, 255, .55);
+}
+
+/* =========================================================
+   REDES SOCIALES
+   ========================================================= */
+.redes {
+    background: var(--rosa-suave);
+    border-top: 1px solid var(--borde);
+}
+
+.redes__inner {
+    text-align: center;
+}
+
+.redes__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.red {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 22px 12px;
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    transition: var(--transicion);
+}
+
+.red:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sombra-fuerte);
+}
+
+/* El círculo del ícono retoma la forma del logo, que es circular */
+.red__ico {
+    width: 46px;
+    height: 46px;
+    padding: 11px;
+    margin-bottom: 6px;
+    border-radius: 50%;
+    color: var(--blanco);
+}
+
+.red--ig .red__ico {
+    background: linear-gradient(45deg, #F9CE34, #EE2A7B, #6228D7);
+}
+
+.red--fb .red__ico {
+    background: #1877F2;
+}
+
+.red--tt .red__ico {
+    background: #010101;
+}
+
+.red--wa .red__ico {
+    background: #25D366;
+}
+
+.red__nombre {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    color: var(--marron);
+}
+
+.red__handle {
+    font-size: .82rem;
+    color: var(--texto-suave);
+}
+
+/* =========================================================
+   BADGE DE MEDIOS DE PAGO
+   ========================================================= */
+.mp-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding: 12px 18px;
+    background: var(--crema);
+    border: 1px solid var(--borde);
+    border-radius: 999px;
+    font-size: .88rem;
+    color: var(--texto-suave);
+    text-align: center;
+}
+
+.mp-badge strong {
+    color: var(--marron);
+}
+
+.mp-badge__punto {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    /* celeste institucional de Mercado Pago */
+    background: #00B1EA;
+    flex-shrink: 0;
 }
 
 /* =========================================================
@@ -959,7 +1106,7 @@ section {
     right: 0;
     z-index: 96;
     padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
-    background: rgba(253, 248, 241, .96);
+    background: rgba(255, 249, 243, .96);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-top: 1px solid var(--borde);
@@ -980,10 +1127,10 @@ section {
     gap: 8px;
     width: 100%;
     min-height: 200px;
-    background: repeating-linear-gradient(45deg, var(--verde-claro), var(--verde-claro) 12px, #DDEAE3 12px, #DDEAE3 24px);
-    border: 2px dashed var(--verde);
+    background: repeating-linear-gradient(45deg, var(--rosa-suave), var(--rosa-suave) 12px, #F7D8C6 12px, #F7D8C6 24px);
+    border: 2px dashed var(--naranja);
     border-radius: var(--radio-chico);
-    color: var(--verde);
+    color: var(--naranja);
 }
 
 .placeholder span {
@@ -1095,6 +1242,10 @@ section {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .redes__grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
     .adoptar-redes__botones {
         flex-direction: row;
         justify-content: center;
@@ -1156,7 +1307,7 @@ section {
     }
 
     .nav__links a:not(.nav__cta):hover {
-        color: var(--verde);
+        color: var(--naranja);
     }
 
     .nav__cta {

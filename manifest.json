@@ -4,8 +4,8 @@
   "description": "Asociación civil sin fines de lucro que rescata perros y gatos en situación de calle en Luján, Buenos Aires.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#FDF8F1",
-  "theme_color": "#17493F",
+  "background_color": "#FFF9F3",
+  "theme_color": "#3F2417",
   "lang": "es-AR",
   "icons": [
     {

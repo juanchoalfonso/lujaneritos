@@ -44,13 +44,12 @@ grep -rn "TODO:DATO" --include="*.html" --include="*.css" --include="*.js" .
 
 | Qué | Dónde |
 |---|---|
-| **Número de WhatsApp** | `js/index.js` → `CONFIG.WHATSAPP` |
+| **Número de WhatsApp** | `js/index.js` → `CONFIG.WHATSAPP` — ✅ cargado |
 | **Prender la sección de adoptables** | `js/index.js` → `CONFIG.ADOPTABLES_ACTIVO = true` |
-| **Alias de MercadoPago** | `index.html` → `id="alias-valor"` |
-| **Titular de la cuenta** | `index.html` → clase `alias__titular` |
-| **Links de pago por monto** | `index.html` → los `href` dentro de `.montos__grid` |
-| **CUIT y personería jurídica** | `index.html` → clase `footer__legal-datos` |
-| **Colores de la marca** | `css/index.css` → bloque `:root` |
+| **Alias de MercadoPago** | `index.html` → `id="alias-valor"` — ✅ cargado |
+| **Titular de la cuenta** | `index.html` → bloque comentado bajo el alias |
+| **Links de pago por monto** | opcional: `data-link` en cada botón de `.montos__grid` |
+| **Colores de la marca** | `css/index.css` → bloque `:root` — ✅ tomados del logo |
 
 ### Imágenes
 
@@ -96,7 +95,7 @@ Cuando está en `true`, la sección aparece sola y se oculta el bloque que manda
 Abrir `index.html` directo en el navegador alcanza para casi todo. Para que funcione la carga de adoptables (que usa `fetch`) hace falta un servidor:
 
 ```bash
-python -m http.server 8080
+npx -y serve -l 8080 .
 ```
 
 Y entrar a `http://localhost:8080`.
@@ -131,13 +130,14 @@ git add . && git commit -m "Actualizo la web" && git push
 - [ ] Pedirle a [LujánHoy](https://www.lujanhoy.com.ar/) que enlace la web en sus notas.
 - [ ] Validar el JSON-LD en la Prueba de Resultados Enriquecidos de Google.
 - [ ] Probar una donación real de $100 de punta a punta, escaneando el QR desde un teléfono.
-- [ ] **Google Ad Grants** — US$10.000/mes en Google Ads gratis para ONGs con personería jurídica. En Argentina se valida vía TechSoup/Wingu.
 
 ---
 
 ## Una regla
 
 **Ningún dato inventado.** Cifras de rescatados, costos de una vacuna, cantidad de adoptados: todo confirmado por la organización o no va. Es una ONG que pide plata; un número falso les rompe la credibilidad.
+
+Por eso los montos sugeridos de la sección de donaciones son sólo cifras, sin decir qué compra cada una: hasta que la organización confirme los costos reales, esa equivalencia no se publica.
 
 ---
 

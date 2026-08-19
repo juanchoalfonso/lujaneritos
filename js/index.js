@@ -7,9 +7,8 @@
 
 const CONFIG = {
     /* Número de WhatsApp en formato internacional, sin + ni espacios.
-       Luján es 02323 → el formato queda 549 + 2323 + número.
-       Ejemplo: 5492323400000 */
-    WHATSAPP: '5492323000000',
+       +54 9 2323 53-8038 */
+    WHATSAPP: '5492323538038',
 
     /* Poner en true cuando la organización confirme que quiere la sección
        de adoptables, y cargar los animales en /data/adoptables.json */
@@ -119,6 +118,48 @@ function initCopiar() {
 }
 
 /* ---------------------------------------------------------
+   MONTOS SUGERIDOS
+   Sin links de pago de MercadoPago, lo más útil que puede hacer
+   el botón es copiar el alias y recordar cuánto transferir.
+   Si algún día hay links, basta con ponerle data-link a cada uno.
+   --------------------------------------------------------- */
+function initMontos() {
+    const botones = document.querySelectorAll('.monto');
+    const aviso = document.getElementById('montos-aviso');
+    if (!botones.length) return;
+
+    const alias = document.getElementById('alias-valor');
+    const avisoOriginal = aviso ? aviso.textContent : '';
+    let volver;
+
+    botones.forEach((btn) => {
+        btn.addEventListener('click', async () => {
+            const link = btn.dataset.link;
+            if (link) {
+                window.open(link, '_blank', 'noopener');
+                return;
+            }
+
+            if (!alias || !aviso) return;
+
+            const monto = Number(btn.dataset.monto).toLocaleString('es-AR');
+            const ok = await copiarTexto(alias.textContent.trim());
+
+            aviso.textContent = ok
+                ? `Alias copiado. Transferí $${monto} a ${alias.textContent.trim()}. ¡Gracias!`
+                : `Transferí $${monto} al alias ${alias.textContent.trim()}. ¡Gracias!`;
+            aviso.classList.add('montos__nota--activa');
+
+            clearTimeout(volver);
+            volver = setTimeout(() => {
+                aviso.textContent = avisoOriginal;
+                aviso.classList.remove('montos__nota--activa');
+            }, 6000);
+        });
+    });
+}
+
+/* ---------------------------------------------------------
    WHATSAPP — arma los links desde CONFIG.WHATSAPP
    --------------------------------------------------------- */
 function initWhatsApp() {
@@ -213,6 +254,7 @@ function initAnio() {
 document.addEventListener('DOMContentLoaded', () => {
     initNav();
     initCopiar();
+    initMontos();
     initWhatsApp();
     initRevelar();
     initAnio();
