@@ -296,24 +296,22 @@ section {
     display: flex;
 }
 
-.nav__links a {
+/* :not(.nav__cta) para que el boton conserve los estilos de .btn.
+   Sin esto, este selector le pisaba peso, color y padding. */
+.nav__links a:not(.nav__cta) {
     padding: 12px 4px;
     font-weight: 600;
     color: var(--texto);
     border-bottom: 1px solid var(--borde);
 }
 
-.nav__links a:last-child {
+.nav__links a:not(.nav__cta):last-child {
     border-bottom: none;
 }
 
-/* Va con a.nav__cta: .nav__links a tiene mas especificidad que .nav__cta
-   sola y le pisaba el padding, dejando el texto fuera del boton. */
-a.nav__cta {
-    margin-top: 10px;
-    padding: 12px 26px;
-    border-bottom: none !important;
-    color: var(--marron) !important;
+.nav__cta {
+    margin-top: 18px;
+    min-height: 52px;
     white-space: nowrap;
 }
 
@@ -1579,17 +1577,17 @@ a.nav__cta {
         box-shadow: none;
     }
 
-    .nav__links a {
+    .nav__links a:not(.nav__cta) {
         padding: 6px 0;
         border-bottom: none;
         font-size: .95rem;
     }
 
     .nav__links a:not(.nav__cta):hover {
-        color: var(--naranja);
+        color: var(--naranja-texto);
     }
 
-    a.nav__cta {
+    .nav__cta {
         margin-top: 0;
         padding: 10px 26px;
         min-height: 44px;
