@@ -22,7 +22,7 @@
     --naranja-texto: #A05407;
     --rosa-suave: #FCE7DA;
     --amarillo-suave: #FFF4DC;
-    --verde-menta: #E8F4EC;
+    --durazno: #FFE9CE;
     --crema: #FFF9F3;
     --blanco: #FFFFFF;
     --texto: #3A2A20;
@@ -691,8 +691,10 @@ section {
 /* =========================================================
    QUIÉNES SOMOS
    ========================================================= */
+/* Degradado cálido, la misma familia del cierre pero mucho más suave:
+   la sección tiene párrafos largos y sobre naranja saturado cansa leer. */
 .nosotros {
-    background: var(--verde-menta);
+    background: linear-gradient(160deg, var(--amarillo-suave) 0%, var(--durazno) 100%);
     border-top: 1px solid var(--borde);
 }
 
@@ -810,7 +812,7 @@ section {
    CASTRACIONES
    ========================================================= */
 .castrar {
-    background: var(--verde-menta);
+    background: var(--rosa-suave);
     border-top: 1px solid var(--borde);
     border-bottom: 1px solid var(--borde);
 }
