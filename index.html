@@ -187,15 +187,129 @@
     <section class="hero" id="inicio">
         <div class="hero__fondo" aria-hidden="true"></div>
         <div class="contenedor hero__inner">
-            <p class="hero__kicker">Asociación civil sin fines de lucro · Luján, Buenos Aires · Desde 2019</p>
-            <h1 class="hero__titulo">Rescatamos perros y gatos<br>de la calle en Luján</h1>
-            <p class="hero__bajada">
-                Los sacamos de la calle, los curamos y les buscamos un hogar definitivo.
-                Somos voluntarios y no recibimos ayuda del Estado: cada rescate se sostiene con donaciones.
+
+            <div class="hero__texto">
+                <p class="hero__kicker">
+                    <span class="hero__pill">Asociación civil sin fines de lucro</span>
+                    Luján, Buenos Aires · Desde 2019
+                </p>
+                <h1 class="hero__titulo">Rescatamos perros y gatos<br>de la calle en Luján</h1>
+                <p class="hero__bajada">
+                    Los sacamos de la calle, los curamos y les buscamos un hogar definitivo.
+                    Somos voluntarios y no recibimos ayuda del Estado: cada rescate se sostiene con donaciones.
+                </p>
+                <div class="hero__ctas">
+                    <a href="#donar" class="btn btn--donar btn--grande">Quiero donar</a>
+                    <a href="#ayudar" class="btn btn--contorno btn--grande">Ayudar sin plata</a>
+                </div>
+            </div>
+
+            <!-- Collage: fotos reales de rescatados, apenas rotadas para que se sienta
+                 un álbum y no una grilla. -->
+            <div class="hero__collage" aria-hidden="true">
+                <figure class="hero__foto hero__foto--a">
+                    <img src="/assets/images/rescatados/hero-abrigo.webp" alt="" width="640" height="640"
+                        fetchpriority="high">
+                </figure>
+                <figure class="hero__foto hero__foto--b">
+                    <img src="/assets/images/rescatados/perro-negro-abrigo.webp" alt="" width="640" height="640">
+                </figure>
+                <figure class="hero__foto hero__foto--c">
+                    <img src="/assets/images/rescatados/perro-marron-blanco.webp" alt="" width="640" height="853">
+                </figure>
+                <figure class="hero__foto hero__foto--d">
+                    <img src="/assets/images/rescatados/gato-baldio.webp" alt="" width="640" height="853">
+                </figure>
+                <span class="hero__sello">
+                    <svg viewBox="0 0 32 32"><use href="#i-huella"></use></svg>
+                    Rescatando<br>desde 2019
+                </span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================ EMERGENCIA ============================================
+         TODO:DATO — bajar esta sección cuando la situación mejore. Los tres puntos
+         salen textuales de lo que publicó la organización, no son estimaciones nuestras. -->
+    <section class="emergencia" id="emergencia">
+        <div class="contenedor contenedor--angosto">
+            <p class="emergencia__tag">
+                <span class="emergencia__pulso" aria-hidden="true"></span>
+                Estamos en emergencia
             </p>
-            <div class="hero__ctas">
-                <a href="#donar" class="btn btn--donar btn--grande">Quiero donar</a>
-                <a href="#ayudar" class="btn btn--fantasma btn--grande">Ayudar sin plata</a>
+            <h2 class="emergencia__titulo">Hoy no llegamos con lo básico</h2>
+            <p class="emergencia__texto">
+                No es una forma de decir. Estas son, hoy, las tres cosas que no estamos pudiendo cubrir:
+            </p>
+            <ul class="emergencia__lista">
+                <li><strong>No pudimos juntar para el pensionado</strong>, donde viven los que no tienen hogar de
+                    tránsito.</li>
+                <li><strong>Debemos muchísimo en la veterinaria</strong>, y cada consulta nueva se paga en el momento.
+                </li>
+                <li><strong>Estamos al borde de no poder comprar alimento.</strong></li>
+            </ul>
+            <p class="emergencia__cierre">
+                Ellos nada saben de dinero, pero nosotros sí. Lo que para vos no es mucho, a ellos los sostiene hasta
+                que aparezca ese hogar que hace tanto esperan.
+            </p>
+            <a href="#donar" class="btn btn--donar btn--grande">Ayudar ahora</a>
+        </div>
+    </section>
+
+    <!-- ============================================ CASO ACTIVO ============================================
+         TODO:DATO — reemplazar por el caso urgente del momento. Se actualiza
+         cambiando fotos, nombre y texto; el resto de la página no se toca. -->
+    <section class="caso" id="caso">
+        <div class="contenedor">
+            <p class="seccion__kicker">Caso abierto</p>
+            <h2 class="seccion__titulo">Toto</h2>
+            <p class="seccion__bajada">Lo atropellaron y siguieron de largo. Está en tratamiento ahora mismo.</p>
+
+            <div class="caso__grid">
+                <div class="caso__fotos">
+                    <img src="/assets/images/rescatados/toto-1.jpg"
+                        alt="Toto, envuelto en una toalla en la clínica veterinaria" loading="lazy" width="900"
+                        height="1600">
+                    <img src="/assets/images/rescatados/toto-3.jpg"
+                        alt="Toto con el vendaje en la mandíbula, sobre la mesa de la veterinaria" loading="lazy"
+                        width="900" height="1600">
+                </div>
+
+                <div class="caso__cuerpo">
+                    <p>
+                        A Toto lo atropellaron un martes en Fray Manuel de Torres. Nadie frenó a ver qué había pasado
+                        con él: siguieron de largo, como si hubieran pisado un papel en el piso.
+                    </p>
+                    <p>
+                        Llegó a la veterinaria con <strong>doble fractura de mandíbula</strong>, perdiendo mucha sangre y
+                        con convulsiones. El pronóstico fue reservado durante dos días. A eso se sumaba el estado de
+                        abandono: flaco y sucio.
+                    </p>
+                    <p>
+                        Hoy come y toma agua <em>de a gotitas</em>, y se queda quietito la mayor parte del tiempo para
+                        que duela menos. Se va a probar 30 días con el bozal; si no funciona, va a cirugía.
+                    </p>
+
+                    <div class="caso__necesita">
+                        <h3>Qué necesita Toto</h3>
+                        <ul class="lista-check">
+                            <li><strong>Latitas de recovery</strong> — o su valor para poder comprarlas</li>
+                            <li>Las <strong>consultas y curaciones</strong> de estos 30 días</li>
+                            <li>Medicación para el dolor y alimento húmedo</li>
+                        </ul>
+                    </div>
+
+                    <p class="caso__frase">
+                        «Está difícil, y mucho. Pero no está en nuestro ADN dejarlo tirado agonizando en el asfalto.»
+                    </p>
+
+                    <div class="caso__ctas">
+                        <a href="#donar" class="btn btn--donar">Colaborar con Toto</a>
+                        <a class="btn btn--contorno js-wa" data-wa-msg="Hola! Quiero ayudar a Toto con las latitas de recovery">Donar
+                            latitas</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -303,11 +417,10 @@
                 </blockquote>
             </div>
             <div class="nosotros__foto">
-                <!-- TODO:DATO — foto real del equipo -->
-                <div class="placeholder placeholder--alto">
-                    <span aria-hidden="true">🐾</span>
-                    <small>Foto del equipo pendiente</small>
-                </div>
+                <!-- TODO:DATO — idealmente, una foto del equipo de voluntarios -->
+                <img src="/assets/images/rescatados/toto-2.jpg"
+                    alt="Perrito rescatado con vendajes, siendo atendido en la clínica veterinaria" loading="lazy"
+                    width="900" height="1600">
             </div>
         </div>
     </section>
@@ -364,12 +477,39 @@
             <h2 class="seccion__titulo">Historias que valieron cada peso</h2>
             <p class="seccion__bajada">Esto es lo que hace tu donación cuando llega.</p>
 
+            <!-- Galería del trabajo real. Las fotos NO llevan nombre a propósito:
+                 hasta que la organización confirme quién es quién, no atribuimos
+                 una foto a una historia. -->
+            <div class="galeria">
+                <figure class="galeria__item galeria__item--ancho">
+                    <img src="/assets/images/rescatados/perro-negro-abrigo.webp"
+                        alt="Perro negro rescatado, con abrigo, en un parque con hojas de otoño" loading="lazy"
+                        width="640" height="640">
+                </figure>
+                <figure class="galeria__item">
+                    <img src="/assets/images/rescatados/perro-marron-blanco.webp"
+                        alt="Perro marrón y blanco rescatado mirando a cámara" loading="lazy" width="640" height="853">
+                </figure>
+                <figure class="galeria__item">
+                    <img src="/assets/images/rescatados/perro-comiendo.webp"
+                        alt="Perro rescatado comiendo de un plato sobre el pasto" loading="lazy" width="640"
+                        height="640">
+                </figure>
+                <figure class="galeria__item">
+                    <img src="/assets/images/rescatados/toto-1.jpg"
+                        alt="Perrito blanco envuelto en una toalla en la clínica veterinaria" loading="lazy" width="900"
+                        height="1600">
+                </figure>
+                <figure class="galeria__item">
+                    <img src="/assets/images/rescatados/gato-baldio.webp"
+                        alt="Gato blanco y negro en un terreno con pasto alto" loading="lazy" width="640" height="853">
+                </figure>
+            </div>
+
+            <!-- TODO:DATO — cuando confirmen qué foto corresponde a cada historia,
+                 se pueden ilustrar estas tarjetas. -->
             <div class="historias__grid">
-                <!-- TODO:DATO — confirmar cada historia y conseguir fotos antes/después con permiso de las familias -->
-                <article class="historia">
-                    <div class="placeholder placeholder--foto">
-                        <span aria-hidden="true">🐕</span><small>Foto pendiente</small>
-                    </div>
+                <article class="historia historia--texto">
                     <div class="historia__cuerpo">
                         <h3>Carlitos</h3>
                         <p>El emblema de la resiliencia, el amor y el perdón hacia los humanos que tanto daño le
@@ -377,20 +517,14 @@
                             años fueron muy felices.</p>
                     </div>
                 </article>
-                <article class="historia">
-                    <div class="placeholder placeholder--foto">
-                        <span aria-hidden="true">🐈</span><small>Foto pendiente</small>
-                    </div>
+                <article class="historia historia--texto">
                     <div class="historia__cuerpo">
                         <h3>Robertito</h3>
                         <p>Un gatito que necesitaba una cirugía que no podíamos pagar. Se hizo igual, confiando en que
                             entre todos íbamos a juntarlo. Historias como la suya son la razón de esta página.</p>
                     </div>
                 </article>
-                <article class="historia">
-                    <div class="placeholder placeholder--foto">
-                        <span aria-hidden="true">🐕‍🦺</span><small>Foto pendiente</small>
-                    </div>
+                <article class="historia historia--texto">
                     <div class="historia__cuerpo">
                         <h3>Toto</h3>
                         <p>Uno de los rescates recientes. Así lo llamamos nosotros, porque como decimos siempre: todos
@@ -449,6 +583,16 @@
                         de ingresos estable: de esa venta salen el pensionado, el alimento, la veterinaria y las vacunas.
                     </p>
                     <p class="ayuda__nota">Comprarnos una camita no es un gasto: es un rescate financiado.</p>
+
+                    <div class="ayuda__fotos">
+                        <img src="/assets/images/productos/collares-argentina.jpg"
+                            alt="Collares sublimados con la bandera argentina, hechos por Lujaneritos" loading="lazy"
+                            width="640" height="853">
+                        <img src="/assets/images/productos/collares-correas-argentina.jpg"
+                            alt="Collares y correas con la bandera argentina, hechos por Lujaneritos" loading="lazy"
+                            width="640" height="853">
+                    </div>
+
                     <a class="btn btn--donar js-wa" data-wa-msg="Hola! Quiero comprar una camita / accesorios">
                         Ver productos
                     </a>
