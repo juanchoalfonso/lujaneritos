@@ -23,6 +23,9 @@
     --rosa-suave: #FCE7DA;
     --amarillo-suave: #FFF4DC;
     --durazno: #FFE9CE;
+    /* Más saturado: separa de verdad la franja de castraciones del rosa
+       de historias, que viene inmediatamente después. */
+    --durazno-fuerte: #FFD9A8;
     --crema: #FFF9F3;
     --blanco: #FFFFFF;
     --texto: #3A2A20;
@@ -812,7 +815,7 @@ section {
    CASTRACIONES
    ========================================================= */
 .castrar {
-    background: var(--rosa-suave);
+    background: var(--durazno-fuerte);
     border-top: 1px solid var(--borde);
     border-bottom: 1px solid var(--borde);
 }
@@ -823,8 +826,10 @@ section {
     align-items: center;
 }
 
+/* Texto pleno, no el suave: sobre el durazno saturado el suave se
+   quedaba en 4.08 de contraste, por debajo del mínimo AA. */
 .castrar__texto p {
-    color: var(--texto-suave);
+    color: var(--texto);
     margin-bottom: 14px;
 }
 
