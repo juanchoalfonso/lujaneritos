@@ -14,10 +14,16 @@
          pierde la propiedad verificada del sitio. -->
     <meta name="google-site-verification" content="2Er6p3ABLxowoG2RqHrZViY8jQTlUgQm4JatfQ5eYKw">
     <link rel="manifest" href="/manifest.json">
-    <link rel="icon" href="/assets/images_marca/favicon.png" type="image/png">
+    <!-- Favicon. Google necesita que el ícono sea cuadrado y múltiplo de 48 px,
+         y lo toma del rel="icon". El /favicon.ico de la raíz es el que piden por
+         defecto los navegadores y varios rastreadores. -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/assets/images_marca/favicon-48.png" type="image/png" sizes="48x48">
+    <link rel="icon" href="/assets/images_marca/favicon.png" type="image/png" sizes="192x192">
     <link rel="apple-touch-icon" href="/assets/images_marca/favicon.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Lujaneritos">
+    <link rel="shortcut icon" href="/favicon.ico">
 
     <!-- Open Graph — así se ve el link cuando lo comparten por WhatsApp -->
     <meta property="og:type" content="website">
