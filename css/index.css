@@ -920,6 +920,49 @@ section {
     gap: 10px;
 }
 
+/* --- Casos en memoria ---
+   Tono sobrio y sin botón de donar: es un homenaje, no un pedido. */
+.caso__estado--memoria {
+    background: #EDE7F3;
+    color: #5B4477;
+}
+
+.caso--memoria {
+    border-color: #DFD4EA;
+}
+
+.caso--memoria .caso__frase {
+    border-left-color: #A88FC4;
+}
+
+.caso__despedida {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--borde);
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: #5B4477 !important;
+}
+
+/* Cierre de los casos que terminaron bien */
+.caso__final {
+    margin-top: 20px;
+    padding: 18px 20px;
+    background: #E4F1E8;
+    border-left: 4px solid #3E9159;
+    border-radius: 0 var(--radio-chico) var(--radio-chico) 0;
+}
+
+.caso__final p {
+    margin-bottom: 0;
+    color: #1F5C34 !important;
+}
+
+.caso__final strong {
+    color: #14472A;
+}
+
 /* =========================================================
    CÓMO AYUDAR
    ========================================================= */
