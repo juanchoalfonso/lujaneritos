@@ -781,140 +781,20 @@ section {
 /* =========================================================
    HISTORIAS
    ========================================================= */
-/* Galería del trabajo real */
-.galeria {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin-bottom: 34px;
-}
-
-.galeria__item {
-    overflow: hidden;
-    border-radius: var(--radio);
-    background: var(--rosa-suave);
-    aspect-ratio: 1 / 1;
-}
-
-/* La primera ocupa el ancho completo y es más panorámica */
-.galeria__item--ancho {
-    grid-column: 1 / -1;
-    aspect-ratio: 16 / 10;
-}
-
-.galeria__item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 28%;
-    transition: transform .4s ease;
-}
-
-.galeria__item:hover img {
-    transform: scale(1.05);
-}
-
 /* =========================================================
-   CASTRACIONES
+   HISTORIAS — una card por caso
    ========================================================= */
-.castrar {
-    background: var(--durazno-fuerte);
-    border-top: 1px solid var(--borde);
-    border-bottom: 1px solid var(--borde);
-}
-
-.castrar__inner {
-    display: grid;
-    gap: 20px;
-    align-items: center;
-}
-
-/* Texto pleno, no el suave: sobre el durazno saturado el suave se
-   quedaba en 4.08 de contraste, por debajo del mínimo AA. */
-.castrar__texto p {
-    color: var(--texto);
-    margin-bottom: 14px;
-}
-
-.castrar__nota {
-    padding: 14px 16px;
-    background: var(--blanco);
-    border-radius: var(--radio-chico);
-    color: var(--texto) !important;
-}
-
-.castrar__nota strong {
-    color: var(--marron);
-    white-space: nowrap;
-}
-
-.castrar__icono {
-    display: none;
-    font-size: 7rem;
-    text-align: center;
-    opacity: .5;
-}
-
-.seccion__kicker--izq {
-    text-align: left;
-}
-
 .historias {
     background: var(--rosa-suave);
     border-top: 1px solid var(--borde);
 }
 
-.historias__grid {
+.casos {
     display: grid;
-    gap: 20px;
+    gap: 26px;
 }
 
-/* Tarjetas de historia sin foto: el texto lleva todo el peso */
-.historia--texto {
-    border-left: 4px solid var(--amarillo);
-}
-
-/* Etiqueta del desenlace: sólo van casos cerrados */
-.historia__estado {
-    display: inline-block;
-    margin-bottom: 8px;
-    padding: 4px 12px;
-    background: var(--rosa-suave);
-    border-radius: 999px;
-    font-family: 'Nunito', sans-serif;
-    font-size: .72rem;
-    font-weight: 800;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: var(--naranja-texto);
-}
-
-/* Fotos de productos dentro de la tarjeta de compra */
-.ayuda__fotos {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-    margin-bottom: 18px;
-}
-
-.ayuda__fotos img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: var(--radio-chico);
-}
-
-/* Foto de la sección "quiénes somos" */
-.nosotros__foto img {
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-    object-position: center 25%;
-    border-radius: var(--radio);
-    box-shadow: var(--sombra-fuerte);
-}
-
-.historia {
+.caso {
     background: var(--blanco);
     border: 1px solid var(--borde);
     border-radius: var(--radio);
@@ -922,19 +802,122 @@ section {
     box-shadow: var(--sombra);
 }
 
-.historia__cuerpo {
-    padding: 20px;
+/* --- Media --- */
+.caso__media {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
 }
 
-.historia__cuerpo h3 {
-    font-size: 1.25rem;
+.caso__foto {
+    aspect-ratio: 1 / 1;
+    background: var(--rosa-suave);
+    overflow: hidden;
+}
+
+/* La primera va a lo ancho y más panorámica */
+.caso__foto--principal {
+    grid-column: 1 / -1;
+    aspect-ratio: 16 / 11;
+}
+
+.caso__foto img,
+.caso__foto video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 28%;
+    display: block;
+}
+
+.caso__foto--video {
+    background: #000;
+}
+
+.caso__foto--video video {
+    object-fit: contain;
+    object-position: center;
+}
+
+/* --- Texto --- */
+.caso__texto {
+    padding: 24px 20px 26px;
+}
+
+.caso__estado {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-family: 'Nunito', sans-serif;
+    font-size: .72rem;
     font-weight: 800;
-    margin-bottom: 8px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
 }
 
-.historia__cuerpo p {
-    font-size: .94rem;
+/* En curso va en ámbar; los casos cerrados, en verde */
+.caso__estado--curso {
+    background: var(--amarillo-suave);
+    color: var(--naranja-texto);
+}
+
+.caso__estado--cerrado {
+    background: #E4F1E8;
+    color: #256B3C;
+}
+
+.caso__texto h3 {
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.caso__resumen {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.08rem;
+    font-weight: 700;
+    color: var(--marron) !important;
+    margin-bottom: 16px;
+}
+
+.caso__texto p {
+    margin-bottom: 14px;
     color: var(--texto-suave);
+}
+
+.caso__frase {
+    padding-left: 16px;
+    border-left: 4px solid var(--amarillo);
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.02rem;
+    font-style: italic;
+    color: var(--marron) !important;
+}
+
+.caso__necesita {
+    margin: 20px 0;
+    padding: 18px 20px;
+    background: var(--crema);
+    border-radius: var(--radio);
+}
+
+.caso__necesita h4 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--marron);
+    margin-bottom: 12px;
+}
+
+.caso__necesita .lista-check {
+    margin-bottom: 0;
+}
+
+.caso__ctas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 /* =========================================================
@@ -1592,7 +1575,6 @@ section {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .historias__grid,
     .ayudar__grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1690,7 +1672,6 @@ section {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    .historias__grid,
     .ayudar__grid {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -1725,16 +1706,23 @@ section {
         flex-direction: row;
     }
 
-    /* La galería usa una grilla de 4 con la primera foto a lo ancho de dos */
-    .galeria {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 14px;
+    /* La card se parte en dos: fotos a la izquierda, texto a la derecha */
+    .caso {
+        display: grid;
+        grid-template-columns: .9fr 1fr;
     }
 
-    .galeria__item--ancho {
-        grid-column: span 2;
-        grid-row: span 2;
-        aspect-ratio: 1 / 1;
+    .caso__media {
+        grid-template-columns: repeat(2, 1fr);
+        align-content: start;
+    }
+
+    .caso__texto {
+        padding: 32px 30px;
+    }
+
+    .caso__ctas {
+        flex-direction: row;
     }
 
     /* sin CTA sticky, la burbuja baja */

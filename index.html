@@ -459,77 +459,73 @@
         </div>
     </section>
 
-    <!-- ============================================ HISTORIAS ============================================ -->
+    <!-- ============================================ HISTORIAS ============================================
+         Una card por caso. Para sumar uno nuevo: copiar un bloque <article class="caso">
+         completo, poner las fotos en /assets/images/rescatados/ y cambiar textos.
+         La etiqueta de estado dice en qué punto está: "En recuperación", "Adoptado",
+         "Recuperado". Así se pueden contar casos que todavía no terminaron sin
+         prometer un final que no ocurrió. -->
     <section class="historias" id="historias">
         <div class="contenedor">
-            <p class="seccion__kicker">Finales felices</p>
-            <h2 class="seccion__titulo">Historias que valieron cada peso</h2>
+            <p class="seccion__kicker">Cada rescate, una historia</p>
+            <h2 class="seccion__titulo">Historias</h2>
             <p class="seccion__bajada">Esto es lo que hace tu donación cuando llega.</p>
 
-            <!-- Galería del trabajo real. Las fotos NO llevan nombre a propósito:
-                 hasta que la organización confirme quién es quién, no atribuimos
-                 una foto a una historia. -->
-            <div class="galeria">
-                <figure class="galeria__item galeria__item--ancho">
-                    <img src="/assets/images/rescatados/perro-negro-abrigo.webp"
-                        alt="Perro negro rescatado, con abrigo, en un parque con hojas de otoño" loading="lazy"
-                        width="640" height="640">
-                </figure>
-                <figure class="galeria__item">
-                    <img src="/assets/images/rescatados/perro-marron-blanco.webp"
-                        alt="Perro marrón y blanco rescatado mirando a cámara" loading="lazy" width="640" height="853">
-                </figure>
-                <figure class="galeria__item">
-                    <img src="/assets/images/rescatados/perro-comiendo.webp"
-                        alt="Perro rescatado comiendo de un plato sobre el pasto" loading="lazy" width="640"
-                        height="640">
-                </figure>
-                <figure class="galeria__item">
-                    <img src="/assets/images/rescatados/toto-1.jpg"
-                        alt="Perrito blanco envuelto en una toalla en la clínica veterinaria" loading="lazy" width="900"
-                        height="1600">
-                </figure>
-                <figure class="galeria__item">
-                    <img src="/assets/images/rescatados/toto-2.jpg"
-                        alt="Perrito rescatado recibiendo curaciones en la veterinaria" loading="lazy" width="900"
-                        height="1600">
-                </figure>
-            </div>
+            <div class="casos">
 
-            <!-- HISTORIAS
-                 Para sumar una nueva: copiar un bloque <article class="historia">, poner la
-                 foto en /assets/images/historias/ y cambiar el nombre y el texto.
-                 Van SÓLO casos cerrados (adoptados o recuperados), nunca casos en curso:
-                 así la página no queda vieja sola. -->
-            <div class="historias__grid">
-
-                <article class="historia historia--texto">
-                    <div class="historia__cuerpo">
-                        <span class="historia__estado">Adoptado</span>
-                        <h3>El particorto de la escuela comercial</h3>
-                        <p>Apareció un 4 de mayo y nunca más se fue, esperando a alguien que no volvió. Los vecinos le
-                            daban de comer, pero dormía en la calle sobre un cartón y le robaron hasta los abriguitos
-                            donados. Después de más de dos meses de lluvia y frío, <strong>encontró familia</strong>.</p>
+                <!-- ===== TOTO ===== -->
+                <article class="caso">
+                    <div class="caso__media">
+                        <figure class="caso__foto caso__foto--principal">
+                            <img src="/assets/images/rescatados/toto-1.jpg"
+                                alt="Toto envuelto en una toalla en la clínica veterinaria" loading="lazy" width="900"
+                                height="1600">
+                        </figure>
+                        <figure class="caso__foto">
+                            <img src="/assets/images/rescatados/toto-2.jpg"
+                                alt="Toto con el vendaje en la mandíbula, sobre la mesa de la veterinaria"
+                                loading="lazy" width="900" height="1600">
+                        </figure>
+                        <figure class="caso__foto caso__foto--video">
+                            <!-- preload="metadata": no descarga el video hasta que le dan play -->
+                            <video controls preload="metadata" playsinline
+                                poster="/assets/images/rescatados/toto-2.jpg">
+                                <source src="/assets/images/rescatados/toto-video.mp4" type="video/mp4">
+                                Tu navegador no puede reproducir este video.
+                            </video>
+                        </figure>
                     </div>
-                </article>
 
-                <article class="historia historia--texto">
-                    <div class="historia__cuerpo">
-                        <span class="historia__estado">Recuperado</span>
+                    <div class="caso__texto">
+                        <span class="caso__estado caso__estado--curso">En recuperación</span>
                         <h3>Toto</h3>
-                        <p>Lo atropellaron y siguieron de largo, como si hubieran pisado un papel en el piso. Llegó a la
-                            veterinaria con doble fractura de mandíbula y pronóstico reservado. Salió adelante a fuerza
-                            de curaciones, alimento húmedo y mucha paciencia.</p>
-                    </div>
-                </article>
+                        <p class="caso__resumen">Lo atropellaron en Fray Manuel de Torres y siguieron de largo, como
+                            si hubieran pisado un papel en el piso.</p>
 
-                <article class="historia historia--texto">
-                    <div class="historia__cuerpo">
-                        <span class="historia__estado">Tuvo su familia</span>
-                        <h3>Carlitos</h3>
-                        <p>El emblema de la resiliencia, el amor y el perdón hacia los humanos que tanto daño le
-                            hicieron. Pasó por muchas casas antes de encontrar a <em>su</em> familia. Sus últimos cuatro
-                            años fueron muy felices.</p>
+                        <p>Llegó a la veterinaria perdiendo mucha sangre por la nariz. Convulsionó, y el pronóstico
+                            fue reservado durante dos días. El diagnóstico: <strong>doble fractura de mandíbula</strong>,
+                            sumada a un estado de abandono total, flaco y sucio.</p>
+
+                        <p>Hoy todo es «de a gotitas»: el agua, la comida, todo. Se queda quietito la mayor parte del
+                            tiempo para que duela menos. Se va a probar <strong>30 días con el bozal</strong>; si no
+                            alcanza, va a cirugía. Mientras tanto, alimento húmedo y medicación para el dolor.</p>
+
+                        <p class="caso__frase">«Paciencia y amor hay de sobra en su tránsito. Pero no está en nuestro
+                            ADN dejarlo tirado agonizando en el asfalto.»</p>
+
+                        <div class="caso__necesita">
+                            <h4>Cómo ayudar a Toto</h4>
+                            <ul class="lista-check">
+                                <li><strong>Latitas de recovery</strong>, o su valor para poder comprarlas</li>
+                                <li>Las consultas y curaciones de estos 30 días</li>
+                            </ul>
+                        </div>
+
+                        <div class="caso__ctas">
+                            <a href="#donar" class="btn btn--donar">Colaborar</a>
+                            <a class="btn btn--contorno js-wa"
+                                data-wa-msg="Hola! Quiero ayudar a Toto con las latitas de recovery">Donar latitas</a>
+                        </div>
                     </div>
                 </article>
 
