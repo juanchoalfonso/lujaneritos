@@ -610,21 +610,41 @@ section {
     word-break: break-all;
 }
 
-/* El nombre del titular da confianza: quien transfiere ve a quien le llega */
+/* Datos del titular: quien transfiere puede cotejarlos con lo que le
+   muestra Mercado Pago antes de confirmar. */
 .alias__titular {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
     margin-top: 14px;
-    padding-top: 12px;
+    padding-top: 14px;
     border-top: 1px solid var(--borde);
     font-size: .88rem;
     color: var(--texto-suave);
 }
 
+.alias__titular-label {
+    font-size: .72rem !important;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--naranja-texto);
+}
+
 .alias__titular strong {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
     color: var(--marron);
 }
 
+.alias__cuil {
+    font-family: 'Inter', monospace;
+    letter-spacing: .02em;
+    color: var(--texto) !important;
+}
+
 .alias__titular span {
-    font-size: .8rem;
+    font-size: .82rem;
 }
 
 .qr__caja {
