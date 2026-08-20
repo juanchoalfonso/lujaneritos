@@ -502,7 +502,7 @@ section {
 }
 
 .destino {
-    padding: 26px 22px;
+    padding: 18px 16px;
     background: var(--blanco);
     border: 2px solid var(--borde);
     border-radius: var(--radio);
@@ -519,22 +519,23 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 62px;
-    height: 62px;
-    margin: 0 auto 14px;
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 10px;
     background: var(--amarillo-suave);
     border-radius: 50%;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
 }
 
 .destino h3 {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     font-weight: 800;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .destino p {
-    font-size: .93rem;
+    font-size: .88rem;
+    line-height: 1.5;
     color: var(--texto-suave);
 }
 
@@ -609,88 +610,26 @@ section {
     word-break: break-all;
 }
 
+/* El nombre del titular da confianza: quien transfiere ve a quien le llega */
 .alias__titular {
-    margin-top: 12px;
-    font-size: .84rem;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--borde);
+    font-size: .88rem;
     color: var(--texto-suave);
+}
+
+.alias__titular strong {
+    color: var(--marron);
+}
+
+.alias__titular span {
+    font-size: .8rem;
 }
 
 .qr__caja {
     display: flex;
     justify-content: center;
-}
-
-/* --- Montos --- */
-.montos__titulo {
-    font-size: 1.15rem;
-    text-align: center;
-    margin-bottom: 16px;
-}
-
-.montos__grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-}
-
-.monto {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    width: 100%;
-    min-height: 72px;
-    padding: 14px 10px;
-    background: var(--blanco);
-    border: 2px solid var(--borde);
-    border-radius: var(--radio);
-    font: inherit;
-    text-align: center;
-    cursor: pointer;
-    transition: var(--transicion);
-}
-
-/* El hover solo en dispositivos que realmente tienen puntero:
-   en tactil se quedaba "pegado" despues de tocar. */
-@media (hover: hover) {
-    .monto:hover {
-        border-color: var(--amarillo);
-        transform: translateY(-3px);
-        box-shadow: var(--sombra);
-    }
-}
-
-/* Seleccionado: lo pone y lo saca el JS, uno solo a la vez */
-.monto--activo {
-    background: var(--amarillo-suave);
-    border-color: var(--marron);
-}
-
-.monto--activo .monto__cifra::after {
-    content: " ✓";
-    color: var(--naranja-texto);
-}
-
-.monto__cifra {
-    font-family: 'Nunito', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 900;
-    color: var(--marron);
-}
-
-.montos__nota {
-    margin-top: 16px;
-    min-height: 42px;
-    text-align: center;
-    font-size: .88rem;
-    color: var(--texto-suave);
-    transition: var(--transicion);
-}
-
-.montos__nota--activa {
-    font-weight: 700;
-    color: var(--marron);
 }
 
 /* =========================================================
@@ -752,7 +691,8 @@ section {
     background: var(--crema);
     border: 1px solid var(--borde);
     border-radius: var(--radio);
-    padding: 24px 20px;
+    padding: 20px 16px;
+    text-align: center;
     transition: var(--transicion);
 }
 
@@ -762,19 +702,26 @@ section {
 }
 
 .card__icono {
-    display: block;
-    font-size: 2rem;
-    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 10px;
+    background: var(--rosa-suave);
+    border-radius: 50%;
+    font-size: 1.4rem;
 }
 
 .card h3 {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     font-weight: 800;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .card p {
-    font-size: .94rem;
+    font-size: .88rem;
+    line-height: 1.5;
     color: var(--texto-suave);
 }
 
@@ -1444,31 +1391,51 @@ section {
    ========================================================= */
 .mp-badge {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 9px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-    padding: 12px 18px;
+    gap: 8px;
+    margin-top: 22px;
+    padding: 16px 18px;
     background: var(--crema);
     border: 1px solid var(--borde);
-    border-radius: 999px;
-    font-size: .88rem;
+    border-radius: var(--radio);
+    font-size: .86rem;
     color: var(--texto-suave);
     text-align: center;
 }
 
-.mp-badge strong {
-    color: var(--marron);
+/* Chip con los dos colores institucionales de Mercado Pago: el celeste
+   de fondo y su azul oscuro para el texto. Con texto blanco el celeste
+   sólo llegaba a 2.48 de contraste; así queda en 4.62 y se sigue
+   reconociendo la marca. */
+.mp-badge__marca {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 16px;
+    background: #00B1EA;
+    border-radius: 999px;
+    font-family: 'Nunito', sans-serif;
+    font-size: .95rem;
+    font-weight: 800;
+    color: #2D3277;
 }
 
-.mp-badge__punto {
-    width: 11px;
-    height: 11px;
-    border-radius: 50%;
-    /* celeste institucional de Mercado Pago */
-    background: #00B1EA;
-    flex-shrink: 0;
+.mp-badge__ico {
+    width: 20px;
+    height: 20px;
+}
+
+/* --- Botón de castraciones: sin esto se estiraba a todo el ancho
+       del bloque de texto y quedaba desalineado con el resto. --- */
+.castrar__texto .btn {
+    align-self: flex-start;
+}
+
+.castrar__texto {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 /* =========================================================
@@ -1626,10 +1593,6 @@ section {
     .donar__grid {
         grid-template-columns: 1.2fr 1fr;
         align-items: stretch;
-    }
-
-    .montos__grid {
-        grid-template-columns: repeat(4, 1fr);
     }
 
     .cards {
@@ -1796,5 +1759,110 @@ section {
 
     .cta-movil {
         display: none;
+    }
+}
+
+/* =========================================================
+   LIGHTBOX
+   ========================================================= */
+.ampliable {
+    cursor: zoom-in;
+}
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 16px;
+    background: rgba(31, 18, 11, .94);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.lightbox[hidden] {
+    display: none;
+}
+
+.lightbox__figura {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.lightbox__figura img {
+    max-width: 100%;
+    /* deja lugar al epígrafe y a los botones */
+    max-height: 74vh;
+    width: auto;
+    border-radius: var(--radio);
+    box-shadow: var(--sombra-fuerte);
+}
+
+.lightbox__figura figcaption {
+    max-width: 620px;
+    font-size: .88rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, .82);
+    text-align: center;
+}
+
+.lightbox__cerrar,
+.lightbox__nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* 44px mínimo para el dedo */
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, .14);
+    border: none;
+    border-radius: 50%;
+    color: #FFFFFF;
+    font-size: 1.7rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: var(--transicion);
+}
+
+.lightbox__cerrar:hover,
+.lightbox__nav:hover {
+    background: rgba(255, 255, 255, .28);
+}
+
+.lightbox__cerrar {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 1;
+    font-size: 2rem;
+}
+
+.lightbox__nav[hidden] {
+    display: none;
+}
+
+@media (min-width: 700px) {
+
+    .lightbox {
+        gap: 16px;
+        padding: 40px;
+    }
+
+    .lightbox__cerrar,
+    .lightbox__nav {
+        width: 54px;
+        height: 54px;
+    }
+
+    .lightbox__figura img {
+        max-height: 80vh;
     }
 }

@@ -114,58 +114,6 @@ function initCopiar() {
 }
 
 /* ---------------------------------------------------------
-   MONTOS SUGERIDOS
-   Sin links de pago de MercadoPago, lo más útil que puede hacer
-   el botón es copiar el alias y recordar cuánto transferir.
-   Si algún día hay links, basta con ponerle data-link a cada uno.
-   --------------------------------------------------------- */
-function initMontos() {
-    const botones = document.querySelectorAll('.monto');
-    const aviso = document.getElementById('montos-aviso');
-    if (!botones.length) return;
-
-    const alias = document.getElementById('alias-valor');
-    const avisoOriginal = aviso ? aviso.textContent : '';
-    let volver;
-
-    botones.forEach((btn) => {
-        btn.addEventListener('click', async () => {
-            const link = btn.dataset.link;
-            if (link) {
-                window.open(link, '_blank', 'noopener');
-                return;
-            }
-
-            if (!alias || !aviso) return;
-
-            // Un solo monto seleccionado a la vez
-            botones.forEach((b) => {
-                b.classList.toggle('monto--activo', b === btn);
-                b.setAttribute('aria-pressed', String(b === btn));
-            });
-
-            const monto = Number(btn.dataset.monto).toLocaleString('es-AR');
-            const ok = await copiarTexto(alias.textContent.trim());
-
-            aviso.textContent = ok
-                ? `Alias copiado. Transferí $${monto} a ${alias.textContent.trim()}. ¡Gracias!`
-                : `Transferí $${monto} al alias ${alias.textContent.trim()}. ¡Gracias!`;
-            aviso.classList.add('montos__nota--activa');
-
-            clearTimeout(volver);
-            volver = setTimeout(() => {
-                aviso.textContent = avisoOriginal;
-                aviso.classList.remove('montos__nota--activa');
-                botones.forEach((b) => {
-                    b.classList.remove('monto--activo');
-                    b.setAttribute('aria-pressed', 'false');
-                });
-            }, 6000);
-        });
-    });
-}
-
-/* ---------------------------------------------------------
    WHATSAPP — arma los links desde CONFIG.WHATSAPP
    --------------------------------------------------------- */
 function initWhatsApp() {
@@ -207,6 +155,90 @@ function initRevelar() {
 }
 
 /* ---------------------------------------------------------
+   LIGHTBOX — ver las fotos a pantalla completa
+   Toma las fotos de las historias, el plantel y los productos.
+   Se cierra con la X, con Escape, o tocando fuera de la imagen.
+   --------------------------------------------------------- */
+function initLightbox() {
+    const caja = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    const pie = document.getElementById('lightbox-pie');
+    const btnCerrar = document.getElementById('lightbox-cerrar');
+    const btnPrev = document.getElementById('lightbox-prev');
+    const btnNext = document.getElementById('lightbox-next');
+    if (!caja || !img) return;
+
+    // Las figuritas del plantel no entran: son links a WhatsApp
+    const fotos = [...document.querySelectorAll(
+        '.caso__foto img, .ayuda__fotos img, .nosotros__foto img'
+    )];
+    if (!fotos.length) return;
+
+    let actual = 0;
+    let veniaDe = null;
+
+    const mostrar = (i) => {
+        actual = (i + fotos.length) % fotos.length;
+        const f = fotos[actual];
+        img.src = f.currentSrc || f.src;
+        img.alt = f.alt || '';
+        pie.textContent = f.alt || '';
+        // Con una sola foto no tiene sentido mostrar las flechas
+        const varias = fotos.length > 1;
+        btnPrev.hidden = !varias;
+        btnNext.hidden = !varias;
+    };
+
+    const abrir = (i, origen) => {
+        veniaDe = origen;
+        mostrar(i);
+        caja.hidden = false;
+        document.body.style.overflow = 'hidden';
+        btnCerrar.focus();
+    };
+
+    const cerrar = () => {
+        caja.hidden = true;
+        // removeAttribute y no src='': con src vacío el navegador
+        // pide la página actual como si fuera una imagen
+        img.removeAttribute('src');
+        document.body.style.overflow = '';
+        if (veniaDe) veniaDe.focus();
+    };
+
+    fotos.forEach((f, i) => {
+        f.classList.add('ampliable');
+        // Accesible con teclado, no sólo con el mouse
+        f.setAttribute('tabindex', '0');
+        f.setAttribute('role', 'button');
+        f.setAttribute('aria-label', `Ampliar foto: ${f.alt || 'sin descripción'}`);
+        f.addEventListener('click', () => abrir(i, f));
+        f.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                abrir(i, f);
+            }
+        });
+    });
+
+    btnCerrar.addEventListener('click', cerrar);
+    btnPrev.addEventListener('click', () => mostrar(actual - 1));
+    btnNext.addEventListener('click', () => mostrar(actual + 1));
+
+    // Tocar el fondo cierra; tocar la imagen no
+    caja.addEventListener('click', (e) => {
+        if (e.target === caja || e.target.classList.contains('lightbox__figura')) cerrar();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (caja.hidden) return;
+        if (e.key === 'Escape') cerrar();
+        if (e.key === 'ArrowLeft') mostrar(actual - 1);
+        if (e.key === 'ArrowRight') mostrar(actual + 1);
+    });
+}
+
+/* ---------------------------------------------------------
    Año del footer
    --------------------------------------------------------- */
 function initAnio() {
@@ -218,8 +250,8 @@ function initAnio() {
 document.addEventListener('DOMContentLoaded', () => {
     initNav();
     initCopiar();
-    initMontos();
     initWhatsApp();
     initRevelar();
+    initLightbox();
     initAnio();
 });
