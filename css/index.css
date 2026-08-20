@@ -448,6 +448,9 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* Las fotos son verticales y la cara queda en el tercio superior:
+       centrado, el recorte 1:1 se la comía. */
+    object-position: center 28%;
 }
 
 /* Rotaciones mínimas: dan sensación de álbum sin marear */
@@ -479,7 +482,6 @@ section {
     height: 104px;
     border-radius: 50%;
     background: var(--blanco);
-    border: 4px solid var(--blanco);
     box-shadow: var(--sombra-fuerte);
 }
 
@@ -804,6 +806,7 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 28%;
     transition: transform .4s ease;
 }
 
@@ -906,6 +909,7 @@ section {
     width: 100%;
     aspect-ratio: 4 / 5;
     object-fit: cover;
+    object-position: center 25%;
     border-radius: var(--radio);
     box-shadow: var(--sombra-fuerte);
 }
@@ -1253,11 +1257,11 @@ section {
     margin-bottom: 12px;
 }
 
+/* El logo ya trae su propio círculo: sin fondo blanco detrás,
+   que le hacía un halo sobre el marrón del footer. */
 .footer__marca img {
     width: 52px;
     height: 52px;
-    border-radius: 50%;
-    background: var(--blanco);
 }
 
 .footer__desc {
