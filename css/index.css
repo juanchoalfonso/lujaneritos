@@ -1446,16 +1446,63 @@ section {
     height: 20px;
 }
 
-/* --- Botón de castraciones: sin esto se estiraba a todo el ancho
-       del bloque de texto y quedaba desalineado con el resto. --- */
-.castrar__texto .btn {
-    align-self: flex-start;
+/* =========================================================
+   CASTRACIONES
+   ========================================================= */
+.castrar {
+    background: var(--durazno-fuerte);
+    border-top: 1px solid var(--borde);
+    border-bottom: 1px solid var(--borde);
 }
 
+.castrar__inner {
+    display: grid;
+    gap: 20px;
+    align-items: center;
+}
+
+/* El contenedor es flex para que el botón no se estire a todo el ancho.
+   align-items: flex-start encoge a los hijos al contenido, por eso la
+   nota lleva width: 100% explícito. */
 .castrar__texto {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+
+/* Texto pleno, no el suave: sobre el durazno saturado el suave se
+   quedaba en 4.08 de contraste, por debajo del mínimo AA. */
+.castrar__texto p {
+    color: var(--texto);
+    margin-bottom: 14px;
+}
+
+.castrar__nota {
+    width: 100%;
+    padding: 14px 16px;
+    background: var(--blanco);
+    border-radius: var(--radio-chico);
+    color: var(--texto) !important;
+}
+
+.castrar__nota strong {
+    color: var(--marron);
+    white-space: nowrap;
+}
+
+.castrar__texto .btn {
+    align-self: flex-start;
+}
+
+.castrar__icono {
+    display: none;
+    font-size: 7rem;
+    text-align: center;
+    opacity: .5;
+}
+
+.seccion__kicker--izq {
+    text-align: left;
 }
 
 /* =========================================================
