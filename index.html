@@ -788,6 +788,20 @@
                 los sume a su familia. Tocá una figurita y te contamos todo sobre ese jugador.
             </p>
 
+            <!-- Video de presentación del plantel.
+                 preload="none" es clave: el navegador no descarga ni un byte del
+                 video hasta que el visitante toca play. Lo único que se carga es
+                 el póster (37 KB), y encima en lazy. Así, quien entra desde el
+                 celular con datos no paga los 2,9 MB salvo que quiera verlo. -->
+            <div class="plantel__video">
+                <video controls preload="none" playsinline poster="/assets/videos/adoptables-poster.jpg"
+                    aria-label="Video de presentación de los lujaneritos en adopción">
+                    <source src="/assets/videos/adoptables.mp4" type="video/mp4">
+                    Tu navegador no puede reproducir este video.
+                </video>
+                <p class="plantel__video-pie">Conocelos en un minuto · 2,9 MB</p>
+            </div>
+
             <div class="plantel__grid">
                 <a class="figurita js-wa" data-wa-msg="Hola! Quiero saber más sobre Beto">
                     <div class="figurita__foto">

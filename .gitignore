@@ -1,4 +1,6 @@
 .DS_Store
+.claude/settings.local.json
 Thumbs.db
 node_modules/
-.claude/settings.local.json
+package-lock.json
+package.json
